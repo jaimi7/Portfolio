@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useDarkMode } from './components/common/DarkModeToggle';
 import Header from './components/ui/Header';
 import Footer from './components/ui/Footer';
@@ -10,11 +11,14 @@ import Skills from './components/sections/Skills';
 import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
+import ProjectsPage from './components/pages/ProjectsPage';
+import ExperiencePage from './components/pages/ExperiencePage';
 import { DarkModeProvider } from './components/common/DarkModeToggle';
 
 function AppContent() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,20 +29,32 @@ function AppContent() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Scroll to top when route changes
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Contact />
-      </main>
-      
-      <Footer />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+            <main>
+              <Hero />
+              <About />
+              <Services />
+              <Skills />
+              <Experience />
+              <Projects />
+              <Contact />
+            </main>
+            <Footer />
+          </>
+        } />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+      </Routes>
       
       {/* Back to Top Button */}
       {showBackToTop && (
@@ -56,9 +72,11 @@ function AppContent() {
 
 function App() {
   return (
-    <DarkModeProvider>
-      <AppContent />
-    </DarkModeProvider>
+    <Router>
+      <DarkModeProvider>
+        <AppContent />
+      </DarkModeProvider>
+    </Router>
   );
 }
 

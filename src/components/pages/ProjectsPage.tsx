@@ -1,30 +1,65 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useNavigate } from 'react-router-dom';
-import { ExternalLink, Code, ArrowRight } from 'lucide-react';
+import { ExternalLink, Code, Filter, Lightbulb, Rocket, ArrowLeft } from 'lucide-react';
 import { projects } from '../../data/projects';
-import type { Project } from '../../types';
+import type { Project, ProjectFilter } from '../../types';
 
-export default function Projects() {
+const filterButtons: { key: ProjectFilter; label: string; icon: React.ReactNode }[] = [
+  { key: 'all', label: 'All Projects', icon: <Filter className="w-4 h-4" /> },
+  { key: 'frontend', label: 'Frontend', icon: <Rocket className="w-4 h-4" /> },
+  { key: 'oracle', label: 'Oracle', icon: <Lightbulb className="w-4 h-4" /> },
+  { key: 'ai', label: 'AI', icon: <Lightbulb className="w-4 h-4" /> }
+];
+
+export default function ProjectsPage() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const navigate = useNavigate();
+  const [selectedFilter, setSelectedFilter] = useState<ProjectFilter>('all');
 
-  // Show only 3 featured projects
-  const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
+  const filteredProjects = projects.filter(project => {
+    if (selectedFilter === 'all') return true;
+    if (selectedFilter === 'frontend') return project.category === 'real';
+    if (selectedFilter === 'oracle') return project.category === 'learning' && 
+      project.techStack.some(tech => tech.toLowerCase().includes('oracle') || tech.toLowerCase().includes('apex'));
+    if (selectedFilter === 'ai') return project.category === 'learning' && 
+      project.techStack.some(tech => tech.toLowerCase().includes('ai'));
+    return true;
+  });
 
   const getProjectCategory = (project: Project) => {
     if (project.category === 'real') return 'Real Project';
     return 'Learning Project';
   };
 
-  
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-full mx-4 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <button
+              onClick={handleGoBack}
+              className="flex items-center gap-2 text-gray-600 hover:text-cyan-600 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Home
+            </button>
+            <h1 className="text-2xl font-bold text-gray-900">All Projects</h1>
+            <div className="w-20"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -33,16 +68,34 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Featured <span className="gradient-text">Projects</span>
+            Complete <span className="gradient-text">Project Portfolio</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A showcase of real-world applications and learning projects in Oracle ecosystem and AI integration.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            A comprehensive showcase of all projects including real-world applications, 
+            learning experiments, and innovative solutions in Oracle ecosystem and AI integration.
           </p>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            {filterButtons.map((filter) => (
+              <button
+                key={filter.key}
+                onClick={() => setSelectedFilter(filter.key)}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  selectedFilter === filter.key
+                    ? 'bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-lg'
+                    : 'bg-white border border-gray-300 text-gray-700 hover:border-cyan-400 hover:text-cyan-600'
+                }`}
+              >
+                {filter.icon}
+                <span className="ml-2">{filter.label}</span>
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-12">
-          {featuredProjects.map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -127,22 +180,21 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Show More Button */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center mt-16"
         >
-          <button
-            onClick={() => navigate('/projects')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-          >
-            Show More Projects
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-100/50 border border-green-200/50 rounded-full">
+            <Rocket className="w-5 h-5 text-green-700" />
+            <span className="text-green-700 font-medium">
+              {filteredProjects.length} projects showcasing enterprise integration expertise
+            </span>
+          </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

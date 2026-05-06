@@ -1,24 +1,40 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useNavigate } from 'react-router-dom';
-import { Briefcase, Calendar, Award, TrendingUp, ArrowRight } from 'lucide-react';
+import { Briefcase, Calendar, Award, TrendingUp, ArrowLeft } from 'lucide-react';
 import { experience } from '../../data/experience';
 import type { Experience } from '../../types';
 
-export default function Experience() {
+export default function ExperiencePage() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const navigate = useNavigate();
-
-  // Show only 2 experiences
-  const featuredExperience = experience.slice(0, 2);
+  const handleGoBack = () => {
+    window.history.back();
+  };
 
   return (
-    <section id="experience" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <button
+              onClick={handleGoBack}
+              className="flex items-center gap-2 text-gray-600 hover:text-cyan-600 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Home
+            </button>
+            <h1 className="text-2xl font-bold text-gray-900">Professional Journey</h1>
+            <div className="w-20"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -27,21 +43,21 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Professional <span className="gradient-text">Journey</span>
+            Complete <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Building scalable applications and connecting enterprise systems with modern technologies.
+            A comprehensive journey through building scalable applications and connecting enterprise systems with modern technologies.
           </p>
         </motion.div>
 
         {/* Experience Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {featuredExperience.map((job: Experience, index: number) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {experience.map((job: Experience, index: number) => (
             <motion.div
               key={job.id}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
+              transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               className="premium-card p-8 relative group hover:scale-105 transition-transform duration-300"
             >
               {/* Company header */}
@@ -98,22 +114,21 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Show More Button */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
-          <button
-            onClick={() => navigate('/experience')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-          >
-            Show More Experience
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-100/50 border border-green-200/50 rounded-full">
+            <Award className="w-5 h-5 text-green-700" />
+            <span className="text-green-700 font-medium">
+              {experience.length} positions across {new Set(experience.map(job => job.company)).size} companies
+            </span>
+          </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

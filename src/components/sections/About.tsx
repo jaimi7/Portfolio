@@ -32,7 +32,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-background to-gray-50/50">
+    <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -74,8 +74,8 @@ export default function About() {
                 and enterprise systems. I'm particularly excited about combining traditional enterprise 
                 solutions with modern AI capabilities to create intelligent, automated workflows.
               </p>
-              <div className="mt-6 p-4 bg-accent/10 border-l-4 border-accent rounded-lg">
-                <p className="font-medium text-accent">
+              <div className="mt-6 p-4 bg-purple-100/50 border-l-4 border-purple-500 rounded-lg">
+                <p className="font-medium text-purple-700">
                   "I enjoy solving complex system problems and building seamless integrations that 
                   connect disparate technologies into cohesive solutions."
                 </p>
@@ -98,7 +98,7 @@ export default function About() {
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                 className="premium-card p-6 flex items-start gap-4"
               >
-                <div className="p-3 bg-gradient-to-br from-accent to-accent/80 text-white rounded-lg shadow-lg">
+                <div className="p-3 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg">
                   {point.icon}
                 </div>
                 <div>
@@ -117,9 +117,9 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-neon-blue/10 border border-neon-blue/20 rounded-full">
-            <Zap className="w-5 h-5 text-neon-blue" />
-            <span className="text-neon-blue font-medium">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-100/50 border border-green-200/50 rounded-full">
+            <Zap className="w-5 h-5 text-green-700" />
+            <span className="text-green-700 font-medium">
               Successfully led Angular → Nuxt 3 migration, improving performance by 40%
             </span>
           </div>

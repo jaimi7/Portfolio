@@ -61,11 +61,11 @@ export default function Services() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
             >
               <div className="flex gap-4 items-center mb-6">
                 {/* Icon */}
-                <div className="w-16 h-16 flex-shrink-0  flex items-center justify-center bg-gradient-to-br from-accent to-accent/80 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
 

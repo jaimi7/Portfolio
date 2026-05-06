@@ -11,7 +11,7 @@ export default function Experience() {
   });
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-gray-50/50 to-background">
+    <section id="experience" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -30,7 +30,7 @@ export default function Experience() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent to-neon-blue rounded-full" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full" />
 
           {experience.map((job: Experience, index: number) => (
             <motion.div
@@ -43,7 +43,7 @@ export default function Experience() {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-accent rounded-full z-10 shadow-lg" />
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-purple-500 rounded-full z-10 shadow-lg" />
 
               {/* Content card */}
               <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
@@ -51,12 +51,12 @@ export default function Experience() {
                   {/* Company header */}
                   <div className="flex items-center gap-3 mb-4 justify-between">
                     <div className={`flex items-center gap-3 ${index % 2 === 0 ? 'ml-auto' : ''}`}>
-                      <div className="p-3 bg-gradient-to-br from-accent to-accent/80 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
+                      <div className="p-3 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
                         <Briefcase className="w-6 h-6" />
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900">{job.company}</h3>
-                        <p className="text-accent font-medium">{job.position}</p>
+                        <p className="text-purple-600 font-medium">{job.position}</p>
                       </div>
                     </div>
                   </div>
@@ -71,13 +71,13 @@ export default function Experience() {
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-accent" />
+                        <TrendingUp className="w-4 h-4 text-purple-600" />
                         Key Responsibilities
                       </h4>
                       <ul className="space-y-2">
                         {job.description.map((desc, descIndex) => (
                           <li key={descIndex} className="text-gray-600 flex items-start gap-2">
-                            <span className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                            <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
                             <span>{desc}</span>
                           </li>
                         ))}
@@ -87,13 +87,13 @@ export default function Experience() {
                     {/* Achievements */}
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                        <Award className="w-4 h-4 text-accent" />
+                        <Award className="w-4 h-4 text-green-600" />
                         Achievements
                       </h4>
                       <ul className="space-y-2">
                         {job.achievements.map((achievement, achIndex) => (
                           <li key={achIndex} className="text-gray-600 flex items-start gap-2">
-                            <span className="w-2 h-2 bg-neon-blue rounded-full mt-2 flex-shrink-0" />
+                            <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -113,9 +113,9 @@ export default function Experience() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent/10 to-neon-blue/10 border border-accent/20 rounded-full">
-            <Award className="w-5 h-5 text-accent" />
-            <span className="gradient-text font-medium">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-100/50 border border-green-200/50 rounded-full">
+            <Award className="w-5 h-5 text-green-700" />
+            <span className="text-green-700 font-medium">
               4+ years of experience building production-ready applications
             </span>
           </div>

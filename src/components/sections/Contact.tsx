@@ -40,7 +40,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-50/50 to-background">
+    <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -79,12 +79,12 @@ export default function Contact() {
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                   className="premium-card p-6 flex items-center gap-4 hover:scale-105 transition-all duration-300 group"
                 >
-                  <div className={`p-3 bg-gradient-to-br ${contact.color} text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className="p-3 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
                     {contact.icon}
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 mb-1">{contact.label}</p>
-                    <p className="font-medium text-gray-900 group-hover:text-accent transition-colors">
+                    <p className="font-medium text-gray-900 group-hover:text-purple-600 transition-colors">
                       {contact.value}
                     </p>
                   </div>
@@ -99,7 +99,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="mt-8 flex items-center gap-3 text-gray-600"
             >
-              <MapPin className="w-5 h-5 text-accent" />
+              <MapPin className="w-5 h-5 text-purple-600" />
               <span>Available for remote and hybrid opportunities</span>
             </motion.div>
           </motion.div>
@@ -122,7 +122,7 @@ export default function Contact() {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
                     placeholder="Your Name"
                   />
                 </div>
@@ -135,7 +135,7 @@ export default function Contact() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -155,7 +155,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-gradient-to-r from-accent to-accent/80 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full px-6 py-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5" />
                   Send Message
@@ -163,7 +163,7 @@ export default function Contact() {
               </form>
 
               <p className="mt-4 text-sm text-gray-600 text-center">
-                Or email directly at <a href="mailto:jaimipatel77@gmail.com" className="text-accent hover:underline">jaimipatel77@gmail.com</a>
+                Or email directly at <a href="mailto:jaimipatel77@gmail.com" className="text-purple-600 hover:underline">jaimipatel77@gmail.com</a>
               </p>
             </div>
           </motion.div>
@@ -177,7 +177,7 @@ export default function Contact() {
           className="text-center mt-16 pt-8 border-t border-gray-200"
         >
           <p className="text-gray-600">
-            © 2024 Jaimi Patel. Built with <span className="text-accent">♥</span> using React, TypeScript, and TailwindCSS
+            © 2024 Jaimi Patel. Built with <span className="text-purple-600">♥</span> using React, TypeScript, and TailwindCSS
           </p>
         </motion.div>
       </div>

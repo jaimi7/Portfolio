@@ -47,7 +47,7 @@ export default function Skills() {
     : skillsByCategory;
 
   return (
-    <section id="skills" className="py-20 bg-gray-50/50">
+    <section id="skills" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -76,8 +76,8 @@ export default function Skills() {
             onClick={() => setSelectedCategory(null)}
             className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
               selectedCategory === null
-                ? 'bg-gradient-to-r from-accent to-accent/80 text-white shadow-lg'
-                : 'bg-white border border-gray-300 text-gray-700 hover:border-accent hover:text-accent'
+                ? 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white shadow-lg'
+                : 'bg-white border border-gray-300 text-gray-700 hover:border-purple-400 hover:text-purple-600'
             }`}
           >
             <Filter className="w-4 h-4 inline mr-2" />
@@ -90,8 +90,8 @@ export default function Skills() {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? `bg-gradient-to-r ${categoryColors[category as keyof typeof categoryColors]} text-white shadow-lg`
-                  : 'bg-white border border-gray-300 text-gray-700 hover:border-accent hover:text-accent'
+                  ? `bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white shadow-lg`
+                  : `bg-white border border-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:text-white`
               }`}
             >
               {categoryIcons[category as keyof typeof categoryIcons]}
@@ -110,7 +110,7 @@ export default function Skills() {
               transition={{ duration: 0.8, delay: 0.4 + categoryIndex * 0.1 }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className={`p-3 bg-gradient-to-br ${categoryColors[category as keyof typeof categoryColors]} text-white rounded-lg shadow-lg`}>
+                <div className="p-3 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg">
                   {categoryIcons[category as keyof typeof categoryIcons]}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">
@@ -134,7 +134,7 @@ export default function Skills() {
                     className="premium-card p-4 hover:scale-105 cursor-pointer group"
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-medium text-gray-900 group-hover:text-accent transition-colors">
+                      <span className="font-medium text-gray-900 group-hover:text-purple-600 transition-colors">
                         {skill.name}
                       </span>
                       {skill.isLearning && (
@@ -156,7 +156,7 @@ export default function Skills() {
                               duration: 1, 
                               delay: 0.8 + categoryIndex * 0.1 + skillIndex * 0.05 
                             }}
-                            className={`h-2 rounded-full bg-gradient-to-r ${categoryColors[category as keyof typeof categoryColors]}`}
+                            className="h-2 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
                           />
                         </div>
                       </div>

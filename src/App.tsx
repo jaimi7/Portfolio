@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { useDarkMode } from './components/common/DarkModeToggle';
 import Header from './components/ui/Header';
+import Footer from './components/ui/Footer';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Services from './components/sections/Services';
@@ -36,6 +37,8 @@ function AppContent() {
         <Projects />
         <Contact />
       </main>
+      
+      <Footer />
       
       {/* Back to Top Button */}
       {showBackToTop && (

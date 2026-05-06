@@ -40,7 +40,12 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <img 
+              src="/favicon.png" 
+              alt="Jaimi Patel" 
+              className="h-8 w-auto rounded-full"
+            />
             <h1 className="text-2xl font-bold gradient-text">JP</h1>
           </div>
 
@@ -50,9 +55,10 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-700 hover:text-accent transition-colors duration-200 font-medium"
+                className="text-gray-700 hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium relative group"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
             ))}
           </div>

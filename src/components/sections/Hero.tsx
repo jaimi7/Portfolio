@@ -58,7 +58,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              I'm a <span className="text-orange-600 font-bold">Software Developer</span> |
+              I'm a <span className="text-purple-600 font-bold">Software Developer</span> |
             </motion.div>
 
             {/* Description */}
@@ -98,7 +98,7 @@ export default function Hero() {
             >
               <button
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
+                className="px-8 py-3 gradient-button flex items-center gap-2"
               >
                 View My Work
                 <ArrowRight className="w-4 h-4" />
@@ -106,10 +106,12 @@ export default function Hero() {
               
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center gap-2"
+                className="px-8 py-3 gradient-outline-button flex items-center gap-2"
               >
-                Let's Talk
-                <Mail className="w-4 h-4" />
+                <span className="flex items-center gap-2">
+                  Let's Talk
+                  <Mail className="w-4 h-4" />
+                </span>
               </button>
             </motion.div>
 

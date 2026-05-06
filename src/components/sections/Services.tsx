@@ -65,7 +65,7 @@ export default function Services() {
             >
               <div className="flex gap-4 items-center mb-6">
                 {/* Icon */}
-                <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
 

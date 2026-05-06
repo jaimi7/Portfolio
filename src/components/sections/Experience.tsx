@@ -30,7 +30,7 @@ export default function Experience() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-sky-400 via-cyan-400 to-teal-400 rounded-full" />
 
           {experience.map((job: Experience, index: number) => (
             <motion.div
@@ -43,7 +43,7 @@ export default function Experience() {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-purple-500 rounded-full z-10 shadow-lg" />
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-cyan-500 rounded-full z-10 shadow-lg" />
 
               {/* Content card */}
               <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
@@ -51,12 +51,12 @@ export default function Experience() {
                   {/* Company header */}
                   <div className="flex items-center gap-3 mb-4 justify-between">
                     <div className={`flex items-center gap-3 ${index % 2 === 0 ? 'ml-auto' : ''}`}>
-                      <div className="p-3 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
+                      <div className="p-3 bg-gradient-to-br from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
                         <Briefcase className="w-6 h-6" />
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900">{job.company}</h3>
-                        <p className="text-purple-600 font-medium">{job.position}</p>
+                        <p className="text-cyan-600 font-medium">{job.position}</p>
                       </div>
                     </div>
                   </div>
@@ -71,13 +71,13 @@ export default function Experience() {
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-purple-600" />
+                        <TrendingUp className="w-4 h-4 text-cyan-600" />
                         Key Responsibilities
                       </h4>
                       <ul className="space-y-2">
                         {job.description.map((desc, descIndex) => (
                           <li key={descIndex} className="text-gray-600 flex items-start gap-2">
-                            <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
+                            <span className="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0" />
                             <span>{desc}</span>
                           </li>
                         ))}

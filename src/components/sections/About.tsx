@@ -74,8 +74,8 @@ export default function About() {
                 and enterprise systems. I'm particularly excited about combining traditional enterprise 
                 solutions with modern AI capabilities to create intelligent, automated workflows.
               </p>
-              <div className="mt-6 p-4 bg-purple-100/50 border-l-4 border-purple-500 rounded-lg">
-                <p className="font-medium text-purple-700">
+              <div className="mt-6 p-4 bg-cyan-100/50 border-l-4 border-cyan-500 rounded-lg">
+                <p className="font-medium text-cyan-700">
                   "I enjoy solving complex system problems and building seamless integrations that 
                   connect disparate technologies into cohesive solutions."
                 </p>
@@ -98,7 +98,7 @@ export default function About() {
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                 className="premium-card p-6 flex items-start gap-4"
               >
-                <div className="p-3 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg shadow-lg">
+                <div className="p-3 bg-gradient-to-br from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg shadow-lg">
                   {point.icon}
                 </div>
                 <div>

@@ -41,7 +41,7 @@ function AppContent() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300"
+          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300"
           aria-label="Back to top"
         >
           <ArrowUp className="w-5 h-5" />

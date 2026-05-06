@@ -60,8 +60,8 @@ export default function Projects() {
                 onClick={() => setSelectedFilter(filter.key)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedFilter === filter.key
-                    ? 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white shadow-lg'
-                    : 'bg-white border border-gray-300 text-gray-700 hover:border-purple-400 hover:text-purple-600'
+                    ? 'bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-lg'
+                    : 'bg-white border border-gray-300 text-gray-700 hover:border-cyan-400 hover:text-cyan-600'
                 }`}
               >
                 {filter.icon}
@@ -80,23 +80,23 @@ export default function Projects() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
               className={`premium-card p-8 relative group hover:scale-105 transition-all duration-300 ${
-                project.featured ? 'ring-2 ring-purple-500 ring-offset-2' : ''
+                project.featured ? 'ring-2 ring-cyan-500 ring-offset-2' : ''
               }`}
             >
               {/* Project header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white">
                       {getProjectCategory(project)}
                     </span>
                     {project.featured && (
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-100/50 text-purple-700 border border-purple-200/50">
+                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-cyan-100/50 text-cyan-700 border border-cyan-200/50">
                         Featured
                       </span>
                     )}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -121,7 +121,7 @@ export default function Projects() {
                   {project.techStack.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-purple-100/50 hover:text-purple-600 transition-colors"
+                      className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-cyan-100/50 hover:text-cyan-600 transition-colors"
                     >
                       {tech}
                     </span>
@@ -136,7 +136,7 @@ export default function Projects() {
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300"
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo

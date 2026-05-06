@@ -11,8 +11,8 @@ export default function Hero() {
       {/* Clean white background with subtle gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white" />
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-32 w-64 h-64 bg-gradient-to-r from-blue-100/20 to-purple-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-32 right-32 w-80 h-80 bg-gradient-to-r from-purple-100/20 to-pink-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-32 w-64 h-64 bg-gradient-to-r from-sky-100/20 to-cyan-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-32 right-32 w-80 h-80 bg-gradient-to-r from-cyan-100/20 to-teal-100/20 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +59,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              I'm a <span className="text-purple-600 font-bold">Software Developer</span>
+              I'm a <span className="text-cyan-600 font-bold">Software Developer</span>
             </motion.div>
 
             {/* Description */}
@@ -140,7 +140,7 @@ export default function Hero() {
                   <div className="w-2 h-2 rounded-full bg-green-500"></div>
                 </div>
                 <div className="space-y-2 text-xs font-mono">
-                  <div className="text-purple-500">const developer = {'{'}</div>
+                  <div className="text-cyan-500">const developer = {'{'}</div>
                   <div className="pl-4 text-blue-500">
                     name: <span className="text-green-500">"Jaimi"</span>,
                   </div>
@@ -150,7 +150,7 @@ export default function Hero() {
                   <div className="pl-4 text-blue-500">
                     passion: <span className="text-pink-500">"Building amazing apps"</span>
                   </div>
-                  <div className="text-purple-500">{'}'}</div>
+                  <div className="text-cyan-500">{'}'}</div>
                 </div>
               </motion.div>
 
@@ -158,7 +158,7 @@ export default function Hero() {
               <div className="relative w-80 h-80 z-10">
                 {/* Morphing Blob Background */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-600 opacity-20 blur-2xl rounded-full"
+                  className="absolute inset-0 bg-gradient-to-br from-sky-400 via-cyan-500 to-teal-600 opacity-20 blur-2xl rounded-full"
                   animate={{
                     scale: [1, 1.1, 1],
                     rotate: [0, 180, 360]
@@ -178,7 +178,7 @@ export default function Hero() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-sky-500 via-cyan-500 to-teal-500 rounded-full"></div>
                   <img
                     src={JaimiImage}
                     alt="Jaimi Patel"
@@ -198,7 +198,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 1.4 }}
                 style={{ transform: 'perspective(1000px) rotateX(-5deg) rotateY(5deg)' }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">10+</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent mb-2">10+</div>
                 <div className="text-sm text-gray-600 font-medium">Projects</div>
               </motion.div>
 
@@ -209,7 +209,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 1.6 }}
                 style={{ transform: 'perspective(1000px) rotateX(-5deg) rotateY(5deg)' }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-2">4+</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent mb-2">4+</div>
                 <div className="text-sm text-gray-600 font-medium">Years</div>
               </motion.div>
             </div>

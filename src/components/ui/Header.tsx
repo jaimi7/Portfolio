@@ -55,10 +55,10 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-700 hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium relative group"
+                className="text-gray-700 hover:bg-gradient-to-r hover:from-blue-400 hover:via-sky-400 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium relative group"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
             ))}
           </div>

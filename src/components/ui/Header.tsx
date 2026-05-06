@@ -65,6 +65,14 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
 
           {/* Right side buttons */}
           <div className="flex items-center space-x-4">
+            {/* Hire Me button */}
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="hidden sm:flex px-6 py-2 gradient-button text-sm font-medium items-center"
+            >
+              Hire Me
+            </button>
+
             {/* Dark mode toggle */}
             <button
               onClick={toggleDarkMode}

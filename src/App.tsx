@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
 import { useDarkMode } from './components/common/DarkModeToggle';
 import Header from './components/ui/Header';
 import Hero from './components/sections/Hero';
@@ -11,6 +13,16 @@ import { DarkModeProvider } from './components/common/DarkModeToggle';
 
 function AppContent() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
@@ -24,6 +36,17 @@ function AppContent() {
         <Projects />
         <Contact />
       </main>
+      
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300"
+          aria-label="Back to top"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Globe, Mail, MessageCircle } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import JaimiImage from '../../assets/Jaimi.png';
+import OrbitingElements from '../ui/OrbitingElements';
 
 const skills = ['Vue', 'React', 'Node', 'Javascript', 'Python', 'FastAPI'];
 
@@ -41,7 +42,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="text-xl text-gray-600 mb-2">Hey there! I'm</div>
-              <motion.h1 
+              <motion.h1
                 className="text-5xl md:text-7xl font-bold text-gray-900 font-serif"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -52,28 +53,28 @@ export default function Hero() {
             </motion.div>
 
             {/* Title */}
-            <motion.div 
+            <motion.div
               className="text-xl md:text-2xl text-gray-700 font-medium"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              I'm a <span className="text-purple-600 font-bold">Software Developer</span> |
+              I'm a <span className="text-purple-600 font-bold">Software Developer</span>
             </motion.div>
 
             {/* Description */}
-            <motion.p 
-              className="text-gray-600 leading-relaxed text-lg"
+            <motion.p
+              className="text-gray-600 leading-relaxed text-lg pb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              I create web experiences that combine beautiful design with powerful functionality. 
+              I create web experiences that combine beautiful design with powerful functionality.
               Specializing in modern frameworks and cutting-edge technologies to build applications that make a difference.
             </motion.p>
 
             {/* Skills */}
-            <motion.div 
+            <motion.div
               className="flex flex-wrap gap-3"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -90,8 +91,8 @@ export default function Hero() {
             </motion.div>
 
             {/* CTA Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 py-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
@@ -103,7 +104,7 @@ export default function Hero() {
                 View My Work
                 <ArrowRight className="w-4 h-4" />
               </button>
-              
+
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-8 py-3 gradient-outline-button flex items-center gap-2"
@@ -114,40 +115,6 @@ export default function Hero() {
                 </span>
               </button>
             </motion.div>
-
-            {/* Social Links */}
-            <motion.div 
-              className="flex items-center gap-4"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <span className="text-gray-600 mr-2">Follow me:</span>
-              <a
-                href="https://github.com/jaimipatel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                <Code className="w-5 h-5 text-gray-700" />
-              </a>
-              <a
-                href="https://linkedin.com/in/jaimi-patel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                <Globe className="w-5 h-5 text-gray-700" />
-              </a>
-              <a
-                href="https://twitter.com/jaimipatel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                <MessageCircle className="w-5 h-5 text-gray-700" />
-              </a>
-            </motion.div>
           </motion.div>
 
           {/* Right Column - Image and Stats */}
@@ -157,64 +124,93 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative flex flex-col items-center space-y-8"
           >
-            {/* Profile Image with Abstract Ring */}
-            <div className="relative">
-              {/* Abstract colorful ring */}
-              <div className="absolute -top-8 -rigth-4  inset-0 w-80 h-80 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full opacity-60 animate-spin" />
-              <div className="absolute -top-4 -rigth-4 inset-2 w-72 h-72 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 rounded-full opacity-50 animate-spin" style={{ animationDirection: 'reverse' }} />
-              
-              {/* Profile Image */}
-              <div className="relative left-6 w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                <img 
-                  src={JaimiImage} 
-                  alt="Jaimi Patel" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Floating Code Snippet */}
-            <motion.div
-              className="absolute -top-12 -right-12 bg-white rounded-lg shadow-lg p-4 border border-gray-200 max-w-xs"
-              animate={{ 
-                y: [0, -10, 0],
-                rotate: [0, 2, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <pre className="text-xs text-gray-700 font-mono">
-{`const developer = {
-  name: "Jaimi",
-  skills: ["Javascript", "Python"],
-  passion: "Building amazing apps"
-};`}
-              </pre>
-            </motion.div>
-
-            {/* Stats Cards */}
-            <div className="flex gap-6">
+            {/* Advanced Profile Section */}
+            <div className="relative w-full h-auto flex items-center justify-center">
+              {/* Floating Code Window */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                className="hidden sm:block absolute -top-20 -right-28 w-78 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl z-20"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                style={{ transform: 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' }}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                </div>
+                <div className="space-y-2 text-xs font-mono">
+                  <div className="text-purple-500">const developer = {'{'}</div>
+                  <div className="pl-4 text-blue-500">
+                    name: <span className="text-green-500">"Jaimi"</span>,
+                  </div>
+                  <div className="pl-4 text-blue-500">
+                    skills: <span className="text-yellow-500">["Javascript", "Python"]</span>,
+                  </div>
+                  <div className="pl-4 text-blue-500">
+                    passion: <span className="text-pink-500">"Building amazing apps"</span>
+                  </div>
+                  <div className="text-purple-500">{'}'}</div>
+                </div>
+              </motion.div>
+
+              {/* Central Avatar */}
+              <div className="relative w-80 h-80 z-10">
+                {/* Morphing Blob Background */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-600 opacity-20 blur-2xl rounded-full"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 180, 360]
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+
+                {/* Profile Image with Glow */}
+                <motion.div
+                  className="relative w-96 h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+                  <img
+                    src={JaimiImage}
+                    alt="Jaimi Patel"
+                    className="absolute w-full h-full rounded-full object-cover p-2"
+                  />
+                </motion.div>
+
+                {/* Orbiting Elements */}
+                <OrbitingElements />
+              </div>
+
+              {/* Stats Cards */}
+              <motion.div
+                className="absolute -bottom-32 left-10 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-2xl z-20"
+                initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
-                className="bg-white rounded-lg shadow-lg p-6 text-center"
+                style={{ transform: 'perspective(1000px) rotateX(-5deg) rotateY(5deg)' }}
               >
-                <div className="text-3xl font-bold text-gray-900">10+</div>
-                <div className="text-gray-600">Projects</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">10+</div>
+                <div className="text-sm text-gray-600 font-medium">Projects</div>
               </motion.div>
-              
+
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                className="absolute -bottom-12 -right-12 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-2xl z-20"
+                initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
-                className="bg-white rounded-lg shadow-lg p-6 text-center"
+                style={{ transform: 'perspective(1000px) rotateX(-5deg) rotateY(5deg)' }}
               >
-                <div className="text-3xl font-bold text-gray-900">4+</div>
-                <div className="text-gray-600">Years</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-2">4+</div>
+                <div className="text-sm text-gray-600 font-medium">Years</div>
               </motion.div>
             </div>
           </motion.div>

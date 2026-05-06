@@ -2,6 +2,7 @@ import { useDarkMode } from './components/common/DarkModeToggle';
 import Header from './components/ui/Header';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
+import Services from './components/sections/Services';
 import Skills from './components/sections/Skills';
 import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
@@ -17,6 +18,7 @@ function AppContent() {
       <main>
         <Hero />
         <About />
+        <Services />
         <Skills />
         <Experience />
         <Projects />

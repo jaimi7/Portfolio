@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Code, ArrowRight } from 'lucide-react';
 import type { Project } from '@/types';
-import defaultProjectImage from '@/assets/project/....png'; // Fallback project illustration
+import defaultProjectImage from '@/assets/project/no_img.png'; // Fallback project illustration
 
 interface ProjectCardProps {
   project: Project;

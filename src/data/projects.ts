@@ -11,7 +11,14 @@ import microservice from '@/assets/project/microservice.png';
 import qiigo from '@/assets/project/qiigo.png';
 import quotation_creation from '@/assets/project/quotation_creation.png';
 import sales_ai from '@/assets/project/sales_ai.png';
-import defaultProjectImage from '@/assets/project/....png';
+import iq_crm from '@/assets/project/iq-crm.png';
+import medical_platform from '@/assets/project/medical_platform.png';
+import soc_monitoring from '@/assets/project/soc_monitoring.png';
+import no_img from '@/assets/project/no_img.png';
+import gym from '@/assets/project/gym.png';
+import netflix from '@/assets/project/netflix.png';
+import restaurant from '@/assets/project/restaurant.png';
+
 
 export const projects: Project[] = [
   // Real Projects
@@ -107,7 +114,7 @@ export const projects: Project[] = [
       'Axios'
     ],
     tags: ['frontend', 'real'],
-    img: defaultProjectImage
+    img: medical_platform
   },
 
   {
@@ -172,28 +179,6 @@ export const projects: Project[] = [
   },
 
   {
-    id: 'Lead Generation Platform',
-    name: 'Lead IP Insights',
-    url: 'https://www.leadlex.com/',
-    title: 'Lead Creation & Analytics Platform',
-    category: 'real',
-    overview: 'Lead generation and analytics platform focused on customer acquisition, data visualization, and business intelligence workflows.',
-    contribution: 'Worked on maintenance and optimization of a Vue 2 application, including bug fixing, UI and CSS optimization, bundle size reduction, lazy loading implementation, import optimization, CDN integration, reusable component improvements, and chart rendering optimization. Successfully improved overall application performance and reduced load-related issues by approximately 40%.',
-    techStack: [
-      'Vue 2',
-      'JavaScript',
-      'SCSS',
-      'CSS3',
-      'Chart.js',
-      'Webpack',
-      'Bootstrap',
-      'CDN'
-    ],
-    tags: ['frontend', 'real'],
-    img: lead_generation
-  },
-
-  {
     id: 'Admin Portal',
     name: 'SOCFortress',
     url: 'https://www.socfortress.co/',
@@ -212,7 +197,7 @@ export const projects: Project[] = [
       'VUEXY'
     ],
     tags: ['frontend', 'backend', 'fullstack', 'real'],
-    img: defaultProjectImage
+    img: soc_monitoring
   },
 
   {
@@ -276,7 +261,7 @@ export const projects: Project[] = [
       'Cordova'
     ],
     tags: ['frontend', 'real'],
-    img: defaultProjectImage
+    img: iq_crm
   },
 
   {
@@ -317,5 +302,60 @@ export const projects: Project[] = [
     ],
     tags: ['frontend', 'real'],
     img: qiigo
-  }
+  },
+
+  // Demo
+
+  // {
+  //   id: 'Gym Platform',
+  //   name: 'Gym Platform',
+  //   url: '#',
+  //   title: 'Gym Platform',
+  //   category: 'learning',
+  //   overview: '',
+  //   contribution: '',
+  //   techStack: [
+  //   ],
+  //   tags: ['learning'],
+  //   img: gym
+  // },
+  // {
+  //   id: 'Restaurant Management Platform',
+  //   name: 'Restaurant Management Platform',
+  //   url: '#',
+  //   title: 'Restaurant Management Platform',
+  //   category: 'learning',
+  //   overview: '',
+  //   contribution: '',
+  //   techStack: [
+  //   ],
+  //   tags: ['learning'],
+  //   img: restaurant
+  // },
+  // {
+  //   id: 'Marketing Platform',
+  //   name: 'Qiigo',
+  //   url: 'https://qiigo.com/',
+  //   title: 'B2B Digital Marketing & Franchise Management Platform',
+  //   category: 'learning',
+  //   overview: '',
+  //   contribution: '',
+  //   techStack: [
+  //   ],
+  //   tags: ['learning'],
+  //   img: no_img
+  // },
+  // {
+  //   id: 'Netflix Platform',
+  //   name: 'Netflix',
+  //   url: '#',
+  //   title: 'Netflix Platform',
+  //   category: 'learning',
+  //   overview: '',
+  //   contribution: '',
+  //   techStack: [
+  //   ],
+  //   tags: ['learning'],
+  //   img: netflix
+  // }
 ];

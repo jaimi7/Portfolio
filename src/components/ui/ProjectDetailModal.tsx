@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Code, Zap, ShieldAlert } from 'lucide-react';
 import type { Project } from '@/types';
-import defaultProjectImage from '@/assets/project/....png';
+import defaultProjectImage from '@/assets/project/no_img.png';
 
 interface ProjectDetailModalProps {
   project: Project | null;

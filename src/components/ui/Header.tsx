@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { navigation } from '@/data/navigation';
 import type { NavItem } from '@/types';
 
-interface HeaderProps {
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -73,14 +68,7 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
               Hire Me
             </button>
 
-            {/* Dark mode toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
+
 
             {/* Mobile menu button */}
             <button

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useDarkMode } from '@/components/common/DarkModeToggle';
+
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import Hero from '@/components/sections/Hero';
@@ -14,10 +14,9 @@ import Projects from '@/components/sections/Projects';
 import Contact from '@/components/sections/Contact';
 import ProjectsPage from '@/components/pages/ProjectsPage';
 import ExperiencePage from '@/components/pages/ExperiencePage';
-import { DarkModeProvider } from '@/components/common/DarkModeToggle';
+
 
 function AppContent() {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
 
@@ -36,11 +35,11 @@ function AppContent() {
   }, [location.pathname]);
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
+    <div className="min-h-screen">
       <Routes>
         <Route path="/" element={
           <>
-            <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+            <Header />
             <main>
               <Hero />
               <About />
@@ -75,9 +74,7 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <DarkModeProvider>
-        <AppContent />
-      </DarkModeProvider>
+      <AppContent />
     </Router>
   );
 }

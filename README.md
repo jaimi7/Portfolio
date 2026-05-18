@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# ✨ Jaimi Patel — Professional Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, modern, and highly responsive professional portfolio website built with **React 19**, **TypeScript**, **Vite**, and **Tailwind CSS**. It showcases professional experience, education, skills, services, projects, and contact information with fluid animations and a polished user interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+* **⚡ Modern & Responsive UI/UX**: Clean, stunning interface built with Tailwind CSS, supporting mobile, tablet, and desktop viewports.
+* **🎬 Fluid Animations**: Smooth page transitions, scroll-triggered animations, and elegant interactive states powered by **Framer Motion** and **React Intersection Observer**.
+* **📁 Modular Architecture**: Reusable UI components (like `PageHeader` and `ServiceCard`) structured for maximum maintainability.
+* **🧭 Dynamic Navigation**: Single-page sections combined with dedicated detail pages handled seamlessly via **React Router DOM v7**.
+* **🛠️ Strong Typings**: Completely developed using **TypeScript** for robust development and strict type-safety.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Built With
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![React](https://img.shields.io/badge/React-19.2-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.3-black?style=for-the-badge&logo=framer)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📂 Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── components/
+│   ├── pages/         # Dedicated page views (ExperiencePage, ProjectsPage)
+│   ├── sections/      # Home page layout sections (Hero, About, Services, Experience, Skills, Projects, Education, Contact)
+│   └── ui/            # Reusable UI elements (PageHeader, ServiceCard)
+├── App.tsx            # Main application layout & routes config
+├── main.tsx           # Application entry point
+└── index.css          # Styling & Tailwind custom layers
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 📋 Prerequisites
+
+Ensure you have [Node.js](https://nodejs.org/) installed (v18.x or above recommended).
+
+### 🛠️ Installation & Setup
+
+1. **Clone the Repository:**
+   ```bash
+   git clone git@github-jaimi7:jaimi7/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   Open your browser to `http://localhost:5173` to see your live portfolio!
+
+4. **Build for Production:**
+   ```bash
+   npm run build
+   ```
+   This will bundle the production-ready assets into the `/dist` directory.
+
+---
+
+## ✍️ Author & Contact
+
+* **Name:** Jaimi Patel
+* **Email:** [pateljaimi77@gmail.com](mailto:pateljaimi77@gmail.com)
+* **GitHub:** [@jaimi7](https://github.com/jaimi7)

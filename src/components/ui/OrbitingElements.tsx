@@ -4,7 +4,7 @@ import { Phone, Mail } from 'lucide-react';
 export default function OrbitingElements() {
   return (
     <motion.div
-      className="absolute w-96 h-96 inset-0"
+      className="absolute w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 inset-0"
       animate={{ rotate: 360 }}
       transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
     >

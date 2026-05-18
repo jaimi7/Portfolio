@@ -125,7 +125,7 @@ export function ProjectCard({ project, inView, index, onOpenDetails }: ProjectCa
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className={`w-8 h-8 flex items-center justify-center bg-gradient-to-r ${gradClass} text-white rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300 flex-1 justify-center`}
+                className={`w-8 h-8 flex items-center justify-center bg-gradient-to-r ${gradClass} text-white rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300`}
               >
                 <ExternalLink className="w-4 h-4" />
               </a>
@@ -136,7 +136,7 @@ export function ProjectCard({ project, inView, index, onOpenDetails }: ProjectCa
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="w-8 h-8 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white rounded-full text-sm font-semibold transition-colors flex-1 justify-center"
+                className="w-8 h-8 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white rounded-full text-sm font-semibold transition-colors"
               >
                 <Code className="w-4 h-4" />
               </a>

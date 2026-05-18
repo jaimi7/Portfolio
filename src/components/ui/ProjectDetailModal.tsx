@@ -133,7 +133,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
                 </button>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-2 pl-8">
+              <div className="flex flex-wrap gap-2 pt-4 px-6 md:px-8">
                 <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r ${gradClass} text-white shadow-sm`}>
                   {getProjectCategory(project.category)}
                 </span>
@@ -189,14 +189,14 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
             </div>
 
             {/* 3. Action Footer Buttons */}
-            <div className="bg-slate-50 border-t border-slate-100">
-              <div className="p-5 md:p-6 flex gap-3 w-fit">
+            <div className="bg-slate-50 border-t border-slate-100 w-full">
+              <div className="p-5 md:p-6 flex flex-col sm:flex-row gap-3 w-full justify-end">
                 {project.demoUrl && project.demoUrl !== '#' && (
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-fit text-nowrap flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r ${gradClass} text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer`}
+                    className={`w-full sm:w-auto text-nowrap flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r ${gradClass} text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer`}
                   >
                     <ExternalLink className="w-4 h-4 md:w-5 h-5" />
                     Live Preview
@@ -207,7 +207,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-fit flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
                   >
                     <Code className="w-4 h-4 md:w-5 h-5" />
                     View Source

@@ -7,7 +7,7 @@ const skills = ['Vue', 'React', 'Node', 'Javascript', 'Python', 'FastAPI'];
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen pt-24 pb-16 md:py-0 flex items-center justify-center relative overflow-hidden">
       {/* Clean white background with subtle gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white" />
       <div className="absolute inset-0">
@@ -155,7 +155,7 @@ export default function Hero() {
               </motion.div>
 
               {/* Central Avatar */}
-              <div className="relative w-80 h-80 z-10">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 z-10">
                 {/* Morphing Blob Background */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-sky-400 via-cyan-500 to-teal-600 opacity-20 blur-2xl rounded-full"
@@ -172,7 +172,7 @@ export default function Hero() {
 
                 {/* Profile Image with Glow */}
                 <motion.div
-                  className="relative w-96 h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl"
+                  className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
@@ -192,25 +192,25 @@ export default function Hero() {
 
               {/* Stats Cards */}
               <motion.div
-                className="absolute -bottom-32 left-10 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-2xl z-20"
+                className="absolute -bottom-16 left-2 sm:-bottom-32 sm:left-10 bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-2xl z-20"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
                 style={{ transform: 'perspective(1000px) rotateX(-5deg) rotateY(5deg)' }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent mb-2">10+</div>
-                <div className="text-sm text-gray-600 font-medium">Projects</div>
+                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent mb-1 sm:mb-2">10+</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-medium">Projects</div>
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-12 -right-12 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-2xl z-20"
+                className="absolute -bottom-8 -right-2 sm:-bottom-12 sm:-right-12 bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-2xl z-20"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
                 style={{ transform: 'perspective(1000px) rotateX(-5deg) rotateY(5deg)' }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent mb-2">4+</div>
-                <div className="text-sm text-gray-600 font-medium">Years</div>
+                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent mb-1 sm:mb-2">4+</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-medium">Years</div>
               </motion.div>
             </div>
           </motion.div>

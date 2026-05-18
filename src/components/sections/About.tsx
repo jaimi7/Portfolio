@@ -10,7 +10,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           titleNormal="About"
@@ -70,19 +70,19 @@ export default function About() {
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6 flex flex-col items-end"
+            className="space-y-6 flex flex-col items-center md:items-end w-full"
           >
             <img
               src="/favicon.png"
               alt="Jaimi Patel"
-              className="h-auto w-full"
+              className="h-auto w-1/3 md:w-full max-w-[150px] md:max-w-none rounded-2xl shadow-md border border-slate-100"
             />
             <a
               href="/Jaimi_Patel_CV.pdf"
               download="Jaimi_Patel_CV.pdf"
-              className="px-8 py-3 gradient-button flex items-center gap-3 font-semibold justify-center cursor-pointer"
+              className="w-full md:w-auto px-8 py-3 gradient-button flex items-center gap-3 font-semibold justify-center cursor-pointer"
             >
               Download CV
               <ArrowDownCircle className="w-5 h-5" />

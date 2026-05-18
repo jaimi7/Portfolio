@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code2, Wrench, BrainCircuit } from 'lucide-react';
-import { technicalSkills, tools, softSkills } from '../../data/skills';
-import SkillToolIcon from '../ui/SkillToolIcon';
+import { technicalSkills, tools, softSkills } from '@/data/skills';
+import SkillToolIcon from '@/components/ui/SkillToolIcon';
 
 export default function Skills() {
   const [ref, inView] = useInView({

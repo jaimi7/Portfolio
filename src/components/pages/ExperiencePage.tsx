@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Award, ArrowLeft } from 'lucide-react';
-import { experience } from '../../data/experience';
-import type { Experience } from '../../types';
-import { ExperienceCard } from '../ui/ExperienceCard';
+import { experience } from '@/data/experience';
+import type { Experience } from '@/types';
+import { ExperienceCard } from '@/components/ui/ExperienceCard';
 
 export default function ExperiencePage() {
   const [ref, inView] = useInView({

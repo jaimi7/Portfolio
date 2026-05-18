@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { projects } from '../../data/projects';
-import { ProjectCard } from '../ui/ProjectCard';
+import { projects } from '@/data/projects';
+import { ProjectCard } from '@/components/ui/ProjectCard';
 
 export default function Projects() {
   const [ref, inView] = useInView({

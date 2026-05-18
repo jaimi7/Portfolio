@@ -1,4 +1,4 @@
-import type { TechnicalSkills, Tools, SoftSkills } from '../types';
+import type { TechnicalSkills, Tools, SoftSkills } from '@/types';
 
 export const technicalSkills: TechnicalSkills[] = [
   { name: 'JavaScript / TypeScript', level: 95 },

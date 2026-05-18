@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Filter, Monitor, Server, Layers, Briefcase, BookOpen, Rocket, ArrowLeft } from 'lucide-react';
-import { projects } from '../../data/projects';
-import type { Project, ProjectFilter } from '../../types';
-import { ProjectCard } from '../ui/ProjectCard';
+import { projects } from '@/data/projects';
+import type { Project, ProjectFilter } from '@/types';
+import { ProjectCard } from '@/components/ui/ProjectCard';
 
 const filterButtons: { key: ProjectFilter; label: string; icon: React.ReactNode }[] = [
   { key: 'all', label: 'All Projects', icon: <Filter className="w-4 h-4" /> },

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail } from 'lucide-react';
-import JaimiImage from '../../assets/Jaimi.png';
-import OrbitingElements from '../ui/OrbitingElements';
+import JaimiImage from '@/assets/Jaimi.png';
+import OrbitingElements from '@/components/ui/OrbitingElements';
 
 const skills = ['Vue', 'React', 'Node', 'Javascript', 'Python', 'FastAPI'];
 

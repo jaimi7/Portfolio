@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { navigation } from '../../data/navigation';
-import type { NavItem } from '../../types';
+import { navigation } from '@/data/navigation';
+import type { NavItem } from '@/types';
 
 interface HeaderProps {
   isDarkMode: boolean;

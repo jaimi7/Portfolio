@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, Award, TrendingUp } from 'lucide-react';
-import type { Experience } from '../../types';
+import type { Experience } from '@/types';
 
 interface ExperienceCardProps {
   job: Experience;

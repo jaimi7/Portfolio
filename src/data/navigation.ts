@@ -1,4 +1,4 @@
-import type { NavItem } from '../types';
+import type { NavItem } from '@/types';
 
 export const navigation: NavItem[] = [
   { id: 'home', label: 'Home', href: '#home' },

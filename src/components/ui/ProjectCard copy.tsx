@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Code } from 'lucide-react';
-import type { Project } from '../../types';
+import type { Project } from '@/types';
 
 interface ProjectCardProps {
   project: Project;

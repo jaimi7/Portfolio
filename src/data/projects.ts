@@ -1,17 +1,17 @@
-import type { Project } from '../types';
+import type { Project } from '@/types';
 
 // Static image imports from assets/project
-import athleads from '../assets/project/athleads.png';
-import blockchain from '../assets/project/blockchain.png';
-import crm_platform from '../assets/project/crm_platform.png';
-import hrms from '../assets/project/hrms.png';
-import lead_generation from '../assets/project/lead_generation.png';
-import legal_tech_platform from '../assets/project/legal_tech_platform.png';
-import microservice from '../assets/project/microservice.png';
-import qiigo from '../assets/project/qiigo.png';
-import quotation_creation from '../assets/project/quotation_creation.png';
-import sales_ai from '../assets/project/sales_ai.png';
-import defaultProjectImage from '../assets/project/....png';
+import athleads from '@/assets/project/athleads.png';
+import blockchain from '@/assets/project/blockchain.png';
+import crm_platform from '@/assets/project/crm_platform.png';
+import hrms from '@/assets/project/hrms.png';
+import lead_generation from '@/assets/project/lead_generation.png';
+import legal_tech_platform from '@/assets/project/legal_tech_platform.png';
+import microservice from '@/assets/project/microservice.png';
+import qiigo from '@/assets/project/qiigo.png';
+import quotation_creation from '@/assets/project/quotation_creation.png';
+import sales_ai from '@/assets/project/sales_ai.png';
+import defaultProjectImage from '@/assets/project/....png';
 
 export const projects: Project[] = [
   // Real Projects

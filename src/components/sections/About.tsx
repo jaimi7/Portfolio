@@ -87,12 +87,14 @@ export default function About() {
               alt="Jaimi Patel"
               className="h-auto w-full"
             />
-            <button
-              className="px-8 py-3 gradient-button flex items-center gap-3 font-semibold"
+            <a
+              href="/Jaimi_Patel_CV.pdf"
+              download="Jaimi_Patel_CV.pdf"
+              className="px-8 py-3 gradient-button flex items-center gap-3 font-semibold justify-center cursor-pointer"
             >
               Download CV
               <ArrowDownCircle className="w-5 h-5" />
-            </button>
+            </a>
           </motion.div>
         </div>
 

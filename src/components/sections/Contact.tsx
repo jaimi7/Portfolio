@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, Globe, Code, MapPin } from 'lucide-react';
-import MessageForm from '../ui/MessageForm';
+import MessageForm from '@/components/ui/MessageForm';
 
 export default function Contact() {
   const [ref, inView] = useInView({

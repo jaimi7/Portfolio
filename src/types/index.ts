@@ -59,4 +59,5 @@ export interface Education {
   };
   description?: string;
   url?: string;
+  logo?: string;
 }

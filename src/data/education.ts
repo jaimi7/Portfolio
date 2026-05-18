@@ -1,18 +1,21 @@
 import type { Education } from '@/types';
+import bachelor from '@/assets/gec_modasa.png';
 
-export const education:Education[] = [
+
+export const education: Education[] = [
   {
     id: 'bachelor',
     institute: 'Government Engineering College, Modasa',
     degree: 'Bachelor of Engineering (B.E.) in Information Technology',
     duration: 'Aug 2018 - May 2022',
-    url:'https://www.gecmodasa.ac.in/',
+    url: 'https://www.gecmodasa.ac.in/',
+    logo: bachelor,
     score: {
       cpi: '7.78',
       cgpa: '8.54'
     },
     description:
-      'Completed Bachelor’s degree in Information Technology with focus on software engineering..'
+      'Completed Bachelor’s degree in Information Technology with focus on software engineering.'
   },
 
   {
@@ -20,11 +23,11 @@ export const education:Education[] = [
     institute: 'Lok Vidhyalaya, Utadi',
     degree: 'Higher Secondary Certificate (HSC) - Science Stream',
     duration: 'Mar 2016 - Mar 2018',
-    url:'https://schools.org.in/valsad/24250108803/lok-vidhyala-untdi.html',
+    url: 'https://schools.org.in/valsad/24250108803/lok-vidhyala-untdi.html',
     score: {
       percentage: '70%'
     },
     description:
-      'Completed higher secondary education in Science stream with core subjects including Mathematics, Physics, and Chemistry.'
+      'Completed schooling with core subjects including Mathematics, Physics, and Chemistry.'
   }
 ];

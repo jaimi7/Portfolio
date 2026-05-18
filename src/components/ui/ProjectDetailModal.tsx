@@ -8,9 +8,55 @@ interface ProjectDetailModalProps {
   project: Project | null;
   isOpen: boolean;
   onClose: () => void;
+  index?: number;
 }
 
-export default function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailModalProps) {
+const gradients = [
+  'from-purple-500 via-violet-500 to-indigo-500',
+  'from-lime-500 via-green-500 to-emerald-500',
+  'from-orange-500 via-amber-500 to-yellow-500',
+  'from-fuchsia-500 via-pink-500 to-rose-500',
+  'from-indigo-500 via-blue-500 to-sky-500',
+  'from-red-500 via-pink-500 to-orange-500'
+];
+
+const badgeColors = [
+  'bg-purple-950/80 text-purple-400 border-purple-500/30',
+  'bg-emerald-950/80 text-emerald-400 border-emerald-500/30',
+  'bg-orange-950/80 text-orange-400 border-orange-500/30',
+  'bg-pink-950/80 text-pink-400 border-pink-500/30',
+  'bg-blue-950/80 text-blue-400 border-blue-500/30',
+  'bg-red-950/80 text-red-400 border-red-500/30'
+];
+
+const textColors = [
+  'text-purple-600',
+  'text-emerald-600',
+  'text-orange-600',
+  'text-pink-600',
+  'text-blue-600',
+  'text-red-600'
+];
+
+const bgColors = [
+  'bg-purple-500',
+  'bg-emerald-500',
+  'bg-orange-500',
+  'bg-pink-500',
+  'bg-blue-500',
+  'bg-red-500'
+];
+
+const borderColors = [
+  'border-purple-200/60',
+  'border-emerald-200/60',
+  'border-orange-200/60',
+  'border-pink-200/60',
+  'border-blue-200/60',
+  'border-red-200/60'
+];
+
+export default function ProjectDetailModal({ project, isOpen, onClose, index = 0 }: ProjectDetailModalProps) {
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -28,6 +74,12 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
   const getProjectCategory = (category: string) => {
     return category === 'real' ? 'Real Project' : 'Learning Project';
   };
+
+  const gradClass = gradients[index % gradients.length];
+  const badgeClass = badgeColors[index % badgeColors.length];
+  const textClass = textColors[index % textColors.length];
+  const bgClass = bgColors[index % bgColors.length];
+  const borderClass = borderColors[index % borderColors.length];
 
   return (
     <AnimatePresence>
@@ -82,10 +134,10 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
               </div>
 
               <div className="flex flex-wrap gap-2 pt-2 pl-8">
-                <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-sm">
+                <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r ${gradClass} text-white shadow-sm`}>
                   {getProjectCategory(project.category)}
                 </span>
-                <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/80 text-cyan-400 border border-cyan-500/30 backdrop-blur-md">
+                <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${badgeClass} border backdrop-blur-md`}>
                   {project.id}
                 </span>
               </div>
@@ -119,14 +171,14 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
 
                 {/* Technologies Grid */}
                 <div className="space-y-3">
-                  <span className="text-cyan-500 font-extrabold text-xs tracking-wider uppercase flex items-center gap-1.5">
-                    <span className="w-4 h-0.5 bg-cyan-500 rounded" /> Technologies Used
+                  <span className={`${textClass} font-extrabold text-xs tracking-wider uppercase flex items-center gap-1.5`}>
+                    <span className={`w-4 h-0.5 ${bgClass} rounded`} /> Technologies Used
                   </span>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1.5 bg-slate-50 text-slate-700 border border-slate-100 rounded-xl text-xs font-semibold hover:bg-slate-100 transition-colors flex items-center gap-1"
+                        className={`px-3 py-1.5 bg-slate-50 text-slate-700 border ${borderClass} rounded-xl text-xs font-semibold hover:bg-slate-100 transition-colors flex items-center gap-1`}
                       >
                         {tech}
                       </span>
@@ -144,7 +196,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-fit text-nowrap flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer"
+                    className={`w-fit text-nowrap flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r ${gradClass} text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer`}
                   >
                     <ExternalLink className="w-4 h-4 md:w-5 h-5" />
                     Live Preview

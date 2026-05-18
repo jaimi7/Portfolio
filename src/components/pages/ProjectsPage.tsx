@@ -125,6 +125,7 @@ export default function ProjectsPage() {
         project={selectedProject}
         isOpen={selectedProject !== null}
         onClose={() => setSelectedProject(null)}
+        index={selectedProject ? projects.indexOf(selectedProject) : 0}
       />
     </div>
   );

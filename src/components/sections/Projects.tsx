@@ -7,6 +7,7 @@ import { projects } from '@/data/projects';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import ProjectDetailModal from '@/components/ui/ProjectDetailModal';
 import type { Project } from '@/types';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -19,22 +20,14 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" ref={ref} className="py-20 bg-white">
       <div className="max-w-full mx-4 px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Showcasing scalable web applications, enterprise solutions, and modern development projects.
-          </p>
-        </motion.div>
+        <SectionHeader
+          titleNormal="Featured"
+          titleGradient="Projects"
+          subtitle="Showcasing scalable web applications, enterprise solutions, and modern development projects."
+          className="mb-16"
+        />
 
         {/* Projects Grid */}
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-12">
@@ -71,6 +64,7 @@ export default function Projects() {
         project={selectedProject}
         isOpen={selectedProject !== null}
         onClose={() => setSelectedProject(null)}
+        index={selectedProject ? projects.indexOf(selectedProject) : 0}
       />
     </section>
   );

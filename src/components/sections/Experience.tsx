@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { experience } from '@/data/experience';
 import type { Experience } from '@/types';
 import { ExperienceCard } from '@/components/ui/ExperienceCard';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function Experience() {
   const [ref, inView] = useInView({
@@ -18,22 +19,14 @@ export default function Experience() {
   const featuredExperience = experience.slice(0, 2);
 
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Professional <span className="gradient-text">Journey</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Building scalable applications and connecting enterprise systems with modern technologies.
-          </p>
-        </motion.div>
+        <SectionHeader
+          titleNormal="Professional"
+          titleGradient="Journey"
+          subtitle="Building scalable applications and connecting enterprise systems with modern technologies."
+          className="mb-16"
+        />
 
         {/* Experience Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">

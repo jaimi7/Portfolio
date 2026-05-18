@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GraduationCap, Calendar, Award, ExternalLink, School } from 'lucide-react';
 import { education } from '@/data/education';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function EducationSection() {
   const [ref, inView] = useInView({
@@ -12,23 +13,14 @@ export default function EducationSection() {
   const chronologicalEducation = [...education];
 
   return (
-    <section id="education" className="py-24 bg-white border-y border-slate-100 overflow-hidden">
+    <section id="education" ref={ref} className="py-24 bg-white border-y border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
-        {/* Title */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Academic <span className="gradient-text">Timeline</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A minimalist, chronological journey of my educational background.
-          </p>
-        </motion.div>
+        <SectionHeader
+          titleNormal="Academic"
+          titleGradient="Timeline"
+          subtitle="A minimalist, chronological journey of my educational background."
+          className="mb-12"
+        />
 
         {/* Infographic Horizontal Timeline (Desktop) & Minimalist vertical timeline (Mobile) */}
         <div className="relative py-12">

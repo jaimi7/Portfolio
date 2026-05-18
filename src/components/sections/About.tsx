@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowDownCircle, ArrowDownCircleIcon, Zap } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -11,21 +12,12 @@ export default function About() {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            About <span className="gradient-text">My Journey</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed">
-            From crafting modern frontend experiences to building scalable full stack solutions,
-            I've evolved as a developer focused on clean architecture, performance and real-world problem solving.
-          </p>
-        </motion.div>
+        <SectionHeader
+          titleNormal="About"
+          titleGradient="My Journey"
+          subtitle="From crafting modern frontend experiences to building scalable full stack solutions, I've evolved as a developer focused on clean architecture, performance and real-world problem solving."
+          className="mb-12"
+        />
 
         <div className="grid md:grid-cols-3 gap-10 items-center mb-16">
           <motion.div

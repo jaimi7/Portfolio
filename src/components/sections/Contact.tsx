@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, Globe, Code, MapPin } from 'lucide-react';
 import MessageForm from '@/components/ui/MessageForm';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function Contact() {
   const [ref, inView] = useInView({
@@ -41,23 +42,14 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" ref={ref} className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Let's <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            I'm always interested in discussing new opportunities, challenging projects, 
-            and innovative ideas in enterprise integration and cloud technologies.
-          </p>
-        </motion.div>
+        <SectionHeader
+          titleNormal="Let's"
+          titleGradient="Connect"
+          subtitle="I'm always interested in discussing new opportunities, challenging projects, and innovative ideas in enterprise integration and cloud technologies."
+          className="mb-16"
+        />
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Contact Info */}
@@ -67,7 +59,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Get in Touch</h3>
-            
+
             <div className="space-y-6">
               {contactInfo.map((contact, index) => (
                 <motion.a
@@ -109,7 +101,7 @@ export default function Contact() {
           <MessageForm />
         </div>
 
-        </div>
+      </div>
     </section>
   );
 }

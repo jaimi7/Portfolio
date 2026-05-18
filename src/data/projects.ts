@@ -1,5 +1,18 @@
 import type { Project } from '../types';
 
+// Static image imports from assets/project
+import athleads from '../assets/project/athleads.png';
+import blockchain from '../assets/project/blockchain.png';
+import crm_platform from '../assets/project/crm_platform.png';
+import hrms from '../assets/project/hrms.png';
+import lead_generation from '../assets/project/lead_generation.png';
+import legal_tech_platform from '../assets/project/legal_tech_platform.png';
+import microservice from '../assets/project/microservice.png';
+import qiigo from '../assets/project/qiigo.png';
+import quotation_creation from '../assets/project/quotation_creation.png';
+import sales_ai from '../assets/project/sales_ai.png';
+import defaultProjectImage from '../assets/project/....png';
+
 export const projects: Project[] = [
   // Real Projects
   {
@@ -23,7 +36,8 @@ export const projects: Project[] = [
       'Cypress',
       'Tailwind CSS'
     ],
-    tags: ['frontend', 'backend', 'fullstack', 'real']
+    tags: ['frontend', 'backend', 'fullstack', 'real'],
+    img: crm_platform
   },
 
   {
@@ -48,7 +62,8 @@ export const projects: Project[] = [
       'Storybook',
       'Vitest'
     ],
-    tags: ['frontend', 'backend', 'fullstack', 'real']
+    tags: ['frontend', 'backend', 'fullstack', 'real'],
+    img: legal_tech_platform
   },
 
   {
@@ -70,7 +85,8 @@ export const projects: Project[] = [
       'Jenkins',
       'GitHub Actions'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: lead_generation
   },
 
   {
@@ -90,7 +106,8 @@ export const projects: Project[] = [
       'REST API',
       'Axios'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: defaultProjectImage
   },
 
   {
@@ -111,7 +128,8 @@ export const projects: Project[] = [
       'Microservices',
       'REST API'
     ],
-    tags: ['frontend', 'backend', 'fullstack', 'real']
+    tags: ['frontend', 'backend', 'fullstack', 'real'],
+    img: hrms
   },
 
   {
@@ -129,7 +147,8 @@ export const projects: Project[] = [
       'Bootstrap',
       'REST API'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: sales_ai
   },
 
   {
@@ -148,7 +167,8 @@ export const projects: Project[] = [
       'Tailwind CSS',
       'REST API'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: blockchain
   },
 
   {
@@ -169,7 +189,8 @@ export const projects: Project[] = [
       'Bootstrap',
       'CDN'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: lead_generation
   },
 
   {
@@ -190,7 +211,8 @@ export const projects: Project[] = [
       'Bootstrap',
       'VUEXY'
     ],
-    tags: ['frontend', 'backend', 'fullstack', 'real']
+    tags: ['frontend', 'backend', 'fullstack', 'real'],
+    img: defaultProjectImage
   },
 
   {
@@ -209,7 +231,8 @@ export const projects: Project[] = [
       'Bootstrap',
       'REST API'
     ],
-    tags: ['frontend', 'backend', 'real']
+    tags: ['frontend', 'backend', 'real'],
+    img: quotation_creation
   },
 
   {
@@ -231,7 +254,8 @@ export const projects: Project[] = [
       'Socket.io',
       'Vite'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: athleads
   },
 
   {
@@ -251,7 +275,8 @@ export const projects: Project[] = [
       'SCSS',
       'Cordova'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: defaultProjectImage
   },
 
   {
@@ -270,7 +295,8 @@ export const projects: Project[] = [
       'Microservices',
       'Docker'
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: microservice
   },
 
   {
@@ -289,6 +315,7 @@ export const projects: Project[] = [
       'REST API',
       'Webpack',
     ],
-    tags: ['frontend', 'real']
+    tags: ['frontend', 'real'],
+    img: qiigo
   }
 ];

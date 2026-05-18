@@ -32,6 +32,7 @@ export interface Project {
   name?: string;
   url?: string;
   tags?: string[];
+  img?: string;
 }
 
 export interface TimelineItem extends Experience {

@@ -7,9 +7,10 @@ interface ProjectCardProps {
   project: Project;
   inView: boolean;
   index: number;
+  onOpenDetails?: () => void;
 }
 
-export function ProjectCard({ project, inView, index }: ProjectCardProps) {
+export function ProjectCard({ project, inView, index, onOpenDetails }: ProjectCardProps) {
   const getProjectCategory = (project: Project) => {
     return project.category === 'real' ? 'Real Project' : 'Learning Project';
   };
@@ -19,7 +20,8 @@ export function ProjectCard({ project, inView, index }: ProjectCardProps) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-      className="group bg-white border border-slate-100 rounded-2xl shadow-md shadow-slate-100/50 hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden"
+      onClick={onOpenDetails}
+      className="group bg-white border border-slate-100 rounded-2xl shadow-md shadow-slate-100/50 hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden cursor-pointer"
     >
       {/* 1. Thumbnail Container */}
       <div className="relative w-full aspect-video overflow-hidden bg-slate-50">
@@ -85,6 +87,7 @@ export function ProjectCard({ project, inView, index }: ProjectCardProps) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300 flex-1 justify-center"
             >
               <ExternalLink className="w-4 h-4" />
@@ -96,6 +99,7 @@ export function ProjectCard({ project, inView, index }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-sm font-semibold transition-colors flex-1 justify-center"
             >
               <Code className="w-4 h-4" />

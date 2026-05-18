@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { ProjectCard } from '@/components/ui/ProjectCard';
+import ProjectDetailModal from '@/components/ui/ProjectDetailModal';
+import type { Project } from '@/types';
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -12,10 +15,8 @@ export default function Projects() {
   });
 
   const navigate = useNavigate();
-
   const featuredProjects = projects.slice(0, 3);
-
-
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <section id="projects" className="py-20 bg-white">
@@ -43,6 +44,7 @@ export default function Projects() {
               project={project}
               inView={inView}
               index={index}
+              onOpenDetails={() => setSelectedProject(project)}
             />
           ))}
         </div>
@@ -63,6 +65,13 @@ export default function Projects() {
           </button>
         </motion.div>
       </div>
+
+      {/* Project Detail Modal Pop-up */}
+      <ProjectDetailModal
+        project={selectedProject}
+        isOpen={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }

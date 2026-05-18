@@ -5,6 +5,7 @@ import { Filter, Monitor, Server, Layers, Briefcase, BookOpen, Rocket, ArrowLeft
 import { projects } from '@/data/projects';
 import type { Project, ProjectFilter } from '@/types';
 import { ProjectCard } from '@/components/ui/ProjectCard';
+import ProjectDetailModal from '@/components/ui/ProjectDetailModal';
 
 const filterButtons: { key: ProjectFilter; label: string; icon: React.ReactNode }[] = [
   { key: 'all', label: 'All Projects', icon: <Filter className="w-4 h-4" /> },
@@ -22,6 +23,7 @@ export default function ProjectsPage() {
   });
 
   const [selectedFilter, setSelectedFilter] = useState<ProjectFilter>('all');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = projects.filter((project) => {
     if (selectedFilter === 'all') return true;
@@ -97,6 +99,7 @@ export default function ProjectsPage() {
               project={project}
               inView={inView}
               index={index}
+              onOpenDetails={() => setSelectedProject(project)}
             />
           ))}
         </div>
@@ -116,6 +119,13 @@ export default function ProjectsPage() {
           </div>
         </motion.div>
       </div>
+
+      {/* Project Detail Modal Pop-up */}
+      <ProjectDetailModal
+        project={selectedProject}
+        isOpen={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 }

@@ -78,6 +78,7 @@ export default function About() {
               src="/favicon.png"
               alt="Jaimi Patel"
               className="h-auto w-1/3 md:w-full max-w-[150px] md:max-w-none rounded-2xl shadow-md border border-slate-100"
+              loading="lazy"
             />
             <a
               href="/Jaimi_Patel_CV.pdf"

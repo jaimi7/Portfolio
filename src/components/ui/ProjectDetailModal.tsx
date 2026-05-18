@@ -110,6 +110,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
                   src={project.img || defaultProjectImage}
                   alt={project.title}
                   className="w-full h-full object-cover object-top"
+                  loading="lazy"
                 />
                 {/* Visual Dark Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent" />

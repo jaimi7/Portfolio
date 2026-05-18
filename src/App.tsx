@@ -1,20 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Services from '@/components/sections/Services';
-import Skills from '@/components/sections/Skills';
-import Experience from '@/components/sections/Experience';
-import Education from '@/components/sections/Education';
-import Projects from '@/components/sections/Projects';
-import Contact from '@/components/sections/Contact';
-import ProjectsPage from '@/components/pages/ProjectsPage';
-import ExperiencePage from '@/components/pages/ExperiencePage';
 
+// Lazy load heavy homepage sections and secondary pages
+const About = lazy(() => import('@/components/sections/About'));
+const Services = lazy(() => import('@/components/sections/Services'));
+const Skills = lazy(() => import('@/components/sections/Skills'));
+const Experience = lazy(() => import('@/components/sections/Experience'));
+const Education = lazy(() => import('@/components/sections/Education'));
+const Projects = lazy(() => import('@/components/sections/Projects'));
+const Contact = lazy(() => import('@/components/sections/Contact'));
+const ProjectsPage = lazy(() => import('@/components/pages/ProjectsPage'));
+const ExperiencePage = lazy(() => import('@/components/pages/ExperiencePage'));
+
+// Premium, high-end loading component for lazy suspense fallbacks
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+      <div className="relative flex items-center justify-center">
+        <div className="w-16 h-16 border-4 border-slate-100 rounded-full"></div>
+        <div className="absolute top-0 w-16 h-16 border-4 border-t-cyan-500 border-r-cyan-500 rounded-full animate-spin"></div>
+      </div>
+      <p className="mt-4 text-sm font-semibold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent animate-pulse tracking-wide">
+        Loading Portfolio...
+      </p>
+    </div>
+  );
+}
 
 function AppContent() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -36,32 +52,34 @@ function AppContent() {
 
   return (
     <div className="min-h-screen">
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Header />
-            <main>
-              <Hero />
-              <About />
-              <Services />
-              <Skills />
-              <Experience />
-              <Education />
-              <Projects />
-              <Contact />
-            </main>
-            <Footer />
-          </>
-        } />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/experience" element={<ExperiencePage />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Header />
+              <main>
+                <Hero />
+                <About />
+                <Services />
+                <Skills />
+                <Experience />
+                <Education />
+                <Projects />
+                <Contact />
+              </main>
+              <Footer />
+            </>
+          } />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/experience" element={<ExperiencePage />} />
+        </Routes>
+      </Suspense>
       
       {/* Back to Top Button */}
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300"
+          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer"
           aria-label="Back to top"
         >
           <ArrowUp className="w-5 h-5" />

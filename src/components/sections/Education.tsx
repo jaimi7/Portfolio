@@ -41,7 +41,7 @@ export default function EducationSection() {
                   {/* Timeline Junction Node */}
                   <div className="absolute left-1/2 md:left-10 -top-10 md:top-1/2 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white border-[1px] sm:border-[3px] border-cyan-400 text-cyan-500 shadow-md flex items-center justify-center transform -translate-x-1/2 md:-translate-x-6 md:-translate-y-1/2 overflow-hidden group hover:scale-110 transition-transform duration-300 z-10">
                     {edu.logo ? (
-                      <img src={edu.logo} alt={edu.institute} className="w-full h-full object-contain p-1 bg-white" />
+                      <img src={edu.logo} alt={edu.institute} className="w-full h-full object-contain p-1 bg-white" loading="lazy" />
                     ) : (
                       <GraduationCap className="w-4 sm:w-6 h-4 sm:h-6 text-cyan-500" />
                     )}

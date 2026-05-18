@@ -16,28 +16,28 @@ export default function SkillIcon({ type }: SkillIconProps) {
 
     switch (type.toLowerCase()) {
         case 'git':
-            return <img src={gitIcon} alt="Git" className={iconClass} />;
+            return <img src={gitIcon} alt="Git" className={iconClass} loading="lazy" />;
 
         case 'mongodb':
-            return <img src={mongodbIcon} alt="MongoDB" className={iconClass} />;
+            return <img src={mongodbIcon} alt="MongoDB" className={iconClass} loading="lazy" />;
 
         case 'mysql':
-            return <img src={mysqlIcon} alt="MySQL" className={iconClass} />;
+            return <img src={mysqlIcon} alt="MySQL" className={iconClass} loading="lazy" />;
 
         case 'graphql':
-            return <img src={graphqlIcon} alt="GraphQL" className={iconClass} />;
+            return <img src={graphqlIcon} alt="GraphQL" className={iconClass} loading="lazy" />;
 
         case 'docker':
-            return <img src={dockerIcon} alt="Docker" className={iconClass} />;
+            return <img src={dockerIcon} alt="Docker" className={iconClass} loading="lazy" />;
 
         case 'aws':
-            return <img src={awsIcon} alt="AWS" className={iconClass} />;
+            return <img src={awsIcon} alt="AWS" className={iconClass} loading="lazy" />;
 
         case 'azure':
-            return <img src={azureIcon} alt="Azure" className={iconClass} />;
+            return <img src={azureIcon} alt="Azure" className={iconClass} loading="lazy" />;
 
         case 'oracle':
-            return <img src={oracleIcon} alt="Oracle" className={iconClass} />;
+            return <img src={oracleIcon} alt="Oracle" className={iconClass} loading="lazy" />;
 
         default:
             return null;

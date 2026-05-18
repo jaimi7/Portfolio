@@ -48,7 +48,6 @@ export default function Contact() {
           titleNormal="Let's"
           titleGradient="Connect"
           subtitle="I'm always interested in discussing new opportunities, challenging projects, and innovative ideas in enterprise integration and cloud technologies."
-          className="mb-16"
         />
 
         <div className="grid md:grid-cols-2 gap-12 items-center">

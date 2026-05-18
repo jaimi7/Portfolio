@@ -44,16 +44,15 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           titleNormal="What"
           titleGradient="I Offer"
           subtitle="End-to-end development and integration solutions built for performance, scalability, and real-world impact."
-          className="mb-16"
         />
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}

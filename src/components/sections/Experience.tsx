@@ -1,11 +1,10 @@
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import { experience } from '@/data/experience';
 import type { Experience } from '@/types';
 import { ExperienceCard } from '@/components/ui/ExperienceCard';
 import SectionHeader from '../ui/SectionHeader';
+import ShowMoreButton from '../ui/ShowMoreButton';
 
 export default function Experience() {
   const [ref, inView] = useInView({
@@ -25,11 +24,10 @@ export default function Experience() {
           titleNormal="Professional"
           titleGradient="Journey"
           subtitle="Building scalable applications and connecting enterprise systems with modern technologies."
-          className="mb-16"
         />
 
         {/* Experience Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-8 mb-8 sm:mb-12">
           {featuredExperience.map((job: Experience, index: number) => (
             <ExperienceCard
               key={job.id}
@@ -42,20 +40,13 @@ export default function Experience() {
         </div>
 
         {/* Show More Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <button
-            onClick={() => navigate('/experience')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-          >
-            Show More Experience
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </motion.div>
+        <ShowMoreButton
+          label="Show More Experience"
+          onClick={() => navigate('/experience')}
+          inView={inView}
+          delay={0.8}
+          className="mt-16"
+        />
       </div>
     </section>
   );

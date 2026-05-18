@@ -19,15 +19,14 @@ export default function Skills() {
           titleNormal="Technical"
           titleGradient="Expertise"
           subtitle="A comprehensive skill set spanning modern web development, cloud technologies, and enterprise integration systems."
-          className="mb-16"
         />
 
         <div className="grid md:grid-cols-3 lg:grid-cols-5">
           {/* Left Side: Technical Skills */}
           <div className='md:col-span-1 lg:col-span-2 md:pr-12 lg:pr-20' ref={ref}>
-            <div className="flex items-center gap-3 mb-10">
+            <div className="flex items-center gap-3 mb-5 sm:mb-10">
               <Code2 className="w-7 h-7 text-orange-400" />
-              <h3 className="text-2xl font-bold text-gray-600">Technical Expertise</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-600">Technical Expertise</h3>
             </div>
 
             <div className="space-y-1">
@@ -47,14 +46,14 @@ export default function Skills() {
           <div className="md:col-span-2 lg:col-span-3 space-y-14 mt-12 md:mt-0">
             {/* Tools */}
             <div>
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-5 sm:mb-8">
                 <Wrench className="w-7 h-7 text-red-400" />
-                <h3 className="text-2xl font-bold text-gray-600">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-600">
                   Tools & Technologies
                 </h3>
               </div>
 
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-5">
+              <div className="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
                 {tools.map((tool, index) => (
                   <ToolCard
                     key={tool.name}
@@ -69,12 +68,12 @@ export default function Skills() {
 
             {/* Soft Skills */}
             <div>
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-5 sm:mb-8">
                 <BrainCircuit className="w-7 h-7 text-orange-400" />
-                <h3 className="text-2xl font-bold text-gray-600">Soft Skills</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-600">Soft Skills</h3>
               </div>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-2 sm:gap-4">
                 {softSkills.map((skill, index) => (
                   <SoftSkillBadge
                     key={skill}

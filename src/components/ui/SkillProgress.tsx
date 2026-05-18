@@ -37,16 +37,16 @@ export default function SkillProgress({ name, level, inView, index }: SkillProgr
         duration: 0.6,
         delay: 0.05 * index
       }}
-      className="p-2 hover:scale-105 cursor-pointer group"
+      className="p-1 sm:p-2 hover:scale-105 cursor-pointer group"
     >
-      <div className="mt-3">
+      <div className="mt-2 sm:mt-3">
         <div className="flex justify-between text-gray-600 mb-1">
-          <span className={`font-medium text-gray-900 ${textClass} transition-colors`}>
+          <span className={`font-medium text-gray-900 ${textClass} transition-colors text-sm sm:text-base`}>
             {name}
           </span>
-          <span className="text-xs">{level}%</span>
+          <span className="text-xs sm:text-sm">{level}%</span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-gray-200 rounded-full h-1 sm:h-2">
           <motion.div
             initial={{ width: 0 }}
             animate={inView ? { width: `${level}%` } : {}}
@@ -54,7 +54,7 @@ export default function SkillProgress({ name, level, inView, index }: SkillProgr
               duration: 1,
               delay: 0.08 * index
             }}
-            className={`h-2 rounded-full bg-gradient-to-r ${gradClass}`}
+            className={`h-1 sm:h-2 rounded-full bg-gradient-to-r ${gradClass}`}
           />
         </div>
       </div>

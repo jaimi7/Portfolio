@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import ProjectDetailModal from '@/components/ui/ProjectDetailModal';
 import type { Project } from '@/types';
 import SectionHeader from '../ui/SectionHeader';
+import ShowMoreButton from '../ui/ShowMoreButton';
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -26,7 +25,6 @@ export default function Projects() {
           titleNormal="Featured"
           titleGradient="Projects"
           subtitle="Showcasing scalable web applications, enterprise solutions, and modern development projects."
-          className="mb-16"
         />
 
         {/* Projects Grid */}
@@ -43,20 +41,12 @@ export default function Projects() {
         </div>
 
         {/* Show More Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center"
-        >
-          <button
-            onClick={() => navigate('/projects')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-          >
-            Show More Projects
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </motion.div>
+        <ShowMoreButton
+          label="Show More Projects"
+          onClick={() => navigate('/projects')}
+          inView={inView}
+          delay={0.6}
+        />
       </div>
 
       {/* Project Detail Modal Pop-up */}

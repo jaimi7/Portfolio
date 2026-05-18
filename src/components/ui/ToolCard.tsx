@@ -28,11 +28,11 @@ export default function ToolCard({ name, icon, index, inView }: ToolCardProps) {
         duration: 0.5,
         delay: index * 0.05,
       }}
-      className={`shadow-md border border-gray-50 rounded-2xl p-5 flex flex-col items-center justify-center ${borderHoverClass} 
+      className={`shadow-md border border-gray-50 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center ${borderHoverClass} 
       hover:-translate-y-10 transition-all duration-300`}
     >
       <SkillToolIcon type={icon} />
-      <span className="font-semibold text-gray-800 text-center mt-2">
+      <span className="font-semibold text-gray-800 text-center mt-1 sm:mt-2 text-sm sm:text-base">
         {name}
       </span>
     </motion.div>

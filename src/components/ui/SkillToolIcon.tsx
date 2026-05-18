@@ -12,7 +12,7 @@ type SkillIconProps = {
 };
 
 export default function SkillIcon({ type }: SkillIconProps) {
-    const iconClass = "mb-1 md:mb-2 w-8 h-8 md:w-8 md:h-8 object-contain transition-transform duration-300 hover:scale-110";
+    const iconClass = "mb-1 md:mb-2 w-6 h-6 md:w-8 md:h-8 object-contain transition-transform duration-300 hover:scale-110";
 
     switch (type.toLowerCase()) {
         case 'git':

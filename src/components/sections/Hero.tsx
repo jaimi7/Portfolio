@@ -15,14 +15,14 @@ export default function Hero() {
         <div className="absolute bottom-32 right-32 w-80 h-80 bg-gradient-to-r from-cyan-100/20 to-teal-100/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             {/* Available for freelance work */}
             <motion.div
@@ -64,7 +64,7 @@ export default function Hero() {
 
             {/* Description */}
             <motion.p
-              className="text-gray-600 leading-relaxed text-lg pb-4"
+              className="text-gray-600 leading-relaxed text-md sm:text-lg pb-2 sm:pb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -75,7 +75,7 @@ export default function Hero() {
 
             {/* Skills */}
             <motion.div
-              className="flex flex-wrap gap-3"
+              className="flex flex-wrap gap-1 sm:gap-3"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -83,7 +83,7 @@ export default function Hero() {
               {skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 bg-pink-100 text-pink-700 rounded-xl text-sm font-medium hover:bg-gray-200 transition-colors"
+                  className="px-2 py-1 sm:px-4 sm:py-2 bg-pink-100 text-pink-700 rounded-xl text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors"
                 >
                   {skill}
                 </span>
@@ -192,7 +192,7 @@ export default function Hero() {
 
               {/* Stats Cards */}
               <motion.div
-                className="absolute -bottom-16 left-2 sm:-bottom-32 sm:left-10 bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-2xl z-20"
+                className="absolute -bottom-10 left-0 sm:-bottom-32 sm:left-10 bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-2xl z-20"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
@@ -203,7 +203,7 @@ export default function Hero() {
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-8 -right-2 sm:-bottom-12 sm:-right-12 bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-2xl z-20"
+                className="absolute -bottom-2 -right-2 sm:-bottom-12 sm:-right-12 bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-2xl z-20"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.6 }}

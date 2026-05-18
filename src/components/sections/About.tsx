@@ -16,7 +16,6 @@ export default function About() {
           titleNormal="About"
           titleGradient="My Journey"
           subtitle="From crafting modern frontend experiences to building scalable full stack solutions, I've evolved as a developer focused on clean architecture, performance and real-world problem solving."
-          className="mb-12"
         />
 
         <div className="grid md:grid-cols-3 gap-10 items-center mb-16">

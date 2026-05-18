@@ -26,7 +26,7 @@ export default function SoftSkillBadge({ skill, index, inView }: SoftSkillBadgeP
         duration: 0.4,
         delay: index * 0.05,
       }}
-      className={`text-sm px-4 py-2 rounded-full border ${style.border} ${style.bg} ${style.text} font-medium hover:shadow-lg ${style.shadow} transition-all duration-300 cursor-default`}
+      className={`text-nowrap text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-full border ${style.border} ${style.bg} ${style.text} font-medium hover:shadow-lg ${style.shadow} transition-all duration-300 cursor-default`}
     >
       {skill}
     </motion.div>

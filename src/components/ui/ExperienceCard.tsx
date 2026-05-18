@@ -46,7 +46,7 @@ export function ExperienceCard({ job, inView, index, delayMultiplier = 0.1 }: Ex
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: 0.3 + index * delayMultiplier }}
-      className="premium-card p-8 relative group hover:scale-105 transition-transform duration-300"
+      className="premium-card p-6 sm:p-8 relative group hover:scale-105 transition-transform duration-300"
     >
       {/* Company header */}
       <div className="flex items-center gap-3 mb-6">
@@ -54,19 +54,19 @@ export function ExperienceCard({ job, inView, index, delayMultiplier = 0.1 }: Ex
           <Briefcase className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 cursor-pointer">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-semibold md:font-bold text-gray-900 cursor-pointer">
             <a href={job.url} target="_blank" rel="noopener noreferrer">
               {job.company}
             </a>
           </h3>
-          <p className={`${textClass} font-medium`}>{job.position}</p>
+          <p className={`${textClass} font-medium text-sm md:text-base`}>{job.position}</p>
         </div>
       </div>
 
       {/* Duration */}
-      <div className="flex items-center gap-2 text-gray-600 mb-6">
+      <div className="flex items-center gap-2 text-gray-600 mb-4 sm:mb-6">
         <Calendar className="w-4 h-4" />
-        <span className="text-sm font-medium">{job.duration}</span>
+        <span className="text-xs sm:text-sm font-medium">{job.duration}</span>
       </div>
 
       {/* Description */}
@@ -79,8 +79,8 @@ export function ExperienceCard({ job, inView, index, delayMultiplier = 0.1 }: Ex
           <ul className="space-y-2">
             {job.description.map((desc, descIndex) => (
               <li key={descIndex} className="text-gray-600 flex items-start gap-2">
-                <span className={`w-2 h-2 ${bgClass} rounded-full mt-2 flex-shrink-0`} />
-                <span>{desc}</span>
+                <span className={`w-2 h-2 ${bgClass} rounded-full mt-2 flex-shrink-0 text-sm sm:text-base`} />
+                <span className='text-sm sm:text-base'>{desc}</span>
               </li>
             ))}
           </ul>
@@ -95,8 +95,8 @@ export function ExperienceCard({ job, inView, index, delayMultiplier = 0.1 }: Ex
           <ul className="space-y-2">
             {job.achievements.map((achievement, achIndex) => (
               <li key={achIndex} className="text-gray-600 flex items-start gap-2">
-                <span className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                <span>{achievement}</span>
+                <span className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0 text-sm sm:text-base" />
+                <span className='text-sm sm:text-base'>{achievement}</span>
               </li>
             ))}
           </ul>

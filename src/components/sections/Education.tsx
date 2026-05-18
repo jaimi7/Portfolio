@@ -19,7 +19,6 @@ export default function EducationSection() {
           titleNormal="Academic"
           titleGradient="Timeline"
           subtitle="A minimalist, chronological journey of my educational background."
-          className="mb-12"
         />
 
         {/* Infographic Horizontal Timeline (Desktop) & Minimalist vertical timeline (Mobile) */}

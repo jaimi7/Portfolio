@@ -137,29 +137,31 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
             </div>
 
             {/* 3. Action Footer Buttons */}
-            <div className="p-5 md:p-6 bg-slate-50 border-t border-slate-100 flex gap-3">
-              {project.demoUrl && project.demoUrl !== '#' && (
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer"
-                >
-                  <ExternalLink className="w-4 h-4 md:w-5 h-5" />
-                  Live Preview
-                </a>
-              )}
-              {project.githubUrl && project.githubUrl !== '#' && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer"
-                >
-                  <Code className="w-4 h-4 md:w-5 h-5" />
-                  View Source
-                </a>
-              )}
+            <div className="bg-slate-50 border-t border-slate-100">
+              <div className="p-5 md:p-6 flex gap-3 w-fit">
+                {project.demoUrl && project.demoUrl !== '#' && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit text-nowrap flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer"
+                  >
+                    <ExternalLink className="w-4 h-4 md:w-5 h-5" />
+                    Live Preview
+                  </a>
+                )}
+                {project.githubUrl && project.githubUrl !== '#' && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex-1 cursor-pointer"
+                  >
+                    <Code className="w-4 h-4 md:w-5 h-5" />
+                    View Source
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
         </div>

@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Filter, Monitor, Server, Layers, Briefcase, BookOpen, Rocket, ArrowLeft } from 'lucide-react';
+import { Filter, Monitor, Server, Layers, Briefcase, BookOpen, Rocket } from 'lucide-react';
 import { projects } from '@/data/projects';
 import type { Project, ProjectFilter } from '@/types';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import ProjectDetailModal from '@/components/ui/ProjectDetailModal';
+import PageHeader from '../ui/PageHeader';
+import { motion } from 'framer-motion';
 
 const filterButtons: { key: ProjectFilter; label: string; icon: React.ReactNode }[] = [
   { key: 'all', label: 'All Projects', icon: <Filter className="w-4 h-4" /> },
@@ -33,72 +34,44 @@ export default function ProjectsPage() {
     );
   });
 
-
-  const handleGoBack = () => {
-    window.history.back();
-  };
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <button
-              onClick={handleGoBack}
-              className="flex items-center gap-2 text-gray-600 hover:text-cyan-600 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Back to Home
-            </button>
-            <h1 className="text-2xl font-bold text-gray-900">All Projects</h1>
-            <div className="w-20"></div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        navTitle="All Projects"
+        titleNormal="Complete"
+        titleGradient="Project Portfolio"
+        subtitle="A showcase of real-world applications, scalable SaaS platforms, learning projects, and modern full stack solutions."
+        inView={inView}
+        inViewRef={ref}
+      />
 
       {/* Main Content */}
-      <div className="max-w-full mx-6 px-2 sm:px-4 lg:px-6 py-12">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Complete <span className="gradient-text">Project Portfolio</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            A showcase of real-world applications, scalable SaaS platforms,
-            learning projects, and modern full stack solutions.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            {filterButtons.map((filter) => (
-              <button
-                key={filter.key}
-                onClick={() => setSelectedFilter(filter.key)}
-                className={`px-5 py-2 flex items-center gap-2 rounded-full font-semibold transition-all duration-300 ${selectedFilter === filter.key
-                    ? 'bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-lg'
-                    : 'bg-white border border-gray-300 text-gray-700 hover:border-cyan-400 hover:text-cyan-600'
-                  }`}
-              >
-                {filter.icon}
-                <span>{filter.label}</span>
-              </button>
-            ))}
-          </div>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+        {/* Filters */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {filterButtons.map((filter) => (
+            <button
+              key={filter.key}
+              onClick={() => setSelectedFilter(filter.key)}
+              className={`px-5 py-2 flex items-center gap-2 rounded-full font-semibold transition-all duration-300 ${selectedFilter === filter.key
+                ? 'bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-lg'
+                : 'bg-white border border-gray-300 text-gray-700 hover:border-cyan-400 hover:text-cyan-600'
+                }`}
+            >
+              {filter.icon}
+              <span>{filter.label}</span>
+            </button>
+          ))}
+        </div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}
               inView={inView}
-              index={index}
+              index={projects.indexOf(project)}
               onOpenDetails={() => setSelectedProject(project)}
             />
           ))}

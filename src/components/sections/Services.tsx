@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
 import { Palette, Code, Server, Layers, Cpu, Cloud } from 'lucide-react';
+import SectionHeader from '../ui/SectionHeader';
+import ServiceCard from '../ui/ServiceCard';
 
 const services = [
   {
@@ -44,47 +45,24 @@ export default function Services() {
   return (
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            What <span className="gradient-text">I Offer</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            End-to-end development and integration solutions built for performance, scalability, and real-world impact.
-          </p>
-        </motion.div>
+        <SectionHeader
+          titleNormal="What"
+          titleGradient="I Offer"
+          subtitle="End-to-end development and integration solutions built for performance, scalability, and real-world impact."
+          className="mb-16"
+        />
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <ServiceCard
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex gap-4 items-center mb-6">
-                {/* Icon */}
-                <div className={`bg-gradient-to-br ${service.iconClass} w-10 h-10 md:w-14 md:h-14 flex-shrink-0 flex items-center justify-center text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform`}>
-                  <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                </div>
-
-                {/* Content */}
-                <h4 className="text-xl font-bold text-gray-900 mb-4">
-                  {service.title}
-                </h4>
-              </div>
-
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              iconClass={service.iconClass}
+              index={index}
+            />
           ))}
         </div>
       </div>

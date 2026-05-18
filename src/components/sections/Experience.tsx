@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { experience } from '@/data/experience';
 import type { Experience } from '@/types';
 import { ExperienceCard } from '@/components/ui/ExperienceCard';
-import SectionHeader from '@/components/ui/SectionHeader';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function Experience() {
   const [ref, inView] = useInView({

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, Globe, Code, MapPin } from 'lucide-react';
 import MessageForm from '@/components/ui/MessageForm';
-import SectionHeader from '@/components/ui/SectionHeader';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function Contact() {
   const [ref, inView] = useInView({

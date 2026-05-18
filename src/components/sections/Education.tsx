@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GraduationCap, Calendar, Award, ExternalLink, School } from 'lucide-react';
 import { education } from '@/data/education';
-import SectionHeader from '@/components/ui/SectionHeader';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function EducationSection() {
   const [ref, inView] = useInView({

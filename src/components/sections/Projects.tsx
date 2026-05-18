@@ -7,7 +7,7 @@ import { projects } from '@/data/projects';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import ProjectDetailModal from '@/components/ui/ProjectDetailModal';
 import type { Project } from '@/types';
-import SectionHeader from '@/components/ui/SectionHeader';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function Projects() {
   const [ref, inView] = useInView({

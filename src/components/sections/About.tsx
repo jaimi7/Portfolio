@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowDownCircle, ArrowDownCircleIcon, Zap } from 'lucide-react';
-import SectionHeader from '@/components/ui/SectionHeader';
+import { ArrowDownCircle, Zap } from 'lucide-react';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function About() {
   const [ref, inView] = useInView({

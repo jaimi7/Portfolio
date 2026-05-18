@@ -1,9 +1,10 @@
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Award, ArrowLeft } from 'lucide-react';
+import { Award } from 'lucide-react';
 import { experience } from '@/data/experience';
 import type { Experience } from '@/types';
 import { ExperienceCard } from '@/components/ui/ExperienceCard';
+import PageHeader from '../ui/PageHeader';
+import { motion } from 'framer-motion';
 
 export default function ExperiencePage() {
   const [ref, inView] = useInView({
@@ -11,45 +12,19 @@ export default function ExperiencePage() {
     threshold: 0.1,
   });
 
-  const handleGoBack = () => {
-    window.history.back();
-  };
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <button
-              onClick={handleGoBack}
-              className="flex items-center gap-2 text-gray-600 hover:text-cyan-600 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Back to Home
-            </button>
-            <h1 className="text-2xl font-bold text-gray-900">Professional Journey</h1>
-            <div className="w-20"></div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        navTitle="Professional Journey"
+        titleNormal="Complete"
+        titleGradient="Experience"
+        subtitle="A comprehensive journey through building scalable applications and connecting enterprise systems with modern technologies."
+        inView={inView}
+        inViewRef={ref}
+      />
 
       {/* Main Content */}
-      <div className="max-w-full mx-auto px-4 sm:px-8 lg:px-10 py-20">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Complete <span className="gradient-text">Experience</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A comprehensive journey through building scalable applications and connecting enterprise systems with modern technologies.
-          </p>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
 
         {/* Experience Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

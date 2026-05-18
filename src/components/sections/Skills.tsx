@@ -1,7 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 import { Code2, Wrench, BrainCircuit } from 'lucide-react';
 import { technicalSkills, tools, softSkills } from '@/data/skills';
-import SectionHeader from '@/components/ui/SectionHeader';
+import SectionHeader from '../ui/SectionHeader';
 import SkillProgress from '@/components/ui/SkillProgress';
 import ToolCard from '@/components/ui/ToolCard';
 import SoftSkillBadge from '@/components/ui/SoftSkillBadge';

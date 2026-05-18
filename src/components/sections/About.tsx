@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowDownCircle, Zap } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
+import HighlightPill from '../ui/HighlightPill';
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -11,22 +12,22 @@ export default function About() {
 
   return (
     <section id="about" ref={ref} className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <SectionHeader
           titleNormal="About"
           titleGradient="My Journey"
           subtitle="From crafting modern frontend experiences to building scalable full stack solutions, I've evolved as a developer focused on clean architecture, performance and real-world problem solving."
         />
 
-        <div className="grid md:grid-cols-3 gap-10 items-center mb-16">
+        <div className="grid md:grid-cols-3 gap-10 items-center mb-12 sm:mb-16 pt-8 sm:pt-2">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className='col-span-2'
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">My Story</h3>
-            <div className="space-y-3 text-gray-700 leading-relaxed text-base">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">My Story</h3>
+            <div className="space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
               <p>
                 I started my career as a <span className="font-semibold">frontend developer</span>, building responsive and user-focused applications
                 using <span className="font-semibold">JavaScript, Vue.js, and React.js</span>, along with basic backend development using PHP.
@@ -58,8 +59,8 @@ export default function About() {
                 to build smarter and more connected digital experiences.
               </p>
 
-              <div className="mt-6 p-4 bg-cyan-100/50 border-l-4 border-cyan-500 rounded-lg">
-                <p className="font-medium text-cyan-700">
+              <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-cyan-100/50 border-l-4 border-cyan-500 rounded-lg">
+                <p className="text-sm sm:text-base font-medium text-cyan-700">
                   "Passionate about solving complex technical challenges and creating scalable,
                   high-performance systems that seamlessly connect technologies and deliver meaningful user experiences."
                 </p>
@@ -71,7 +72,7 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6 flex flex-col items-center md:items-end w-full"
+            className="sm:space-y-6 flex flex-row sm:flex-col  gap-3 items-center md:items-end w-full"
           >
             <img
               src="/favicon.png"
@@ -81,7 +82,7 @@ export default function About() {
             <a
               href="/Jaimi_Patel_CV.pdf"
               download="Jaimi_Patel_CV.pdf"
-              className="w-full md:w-auto px-8 py-3 gradient-button flex items-center gap-3 font-semibold justify-center cursor-pointer"
+              className="w-full text-nowrap md:w-auto px-8 py-3 gradient-button flex items-center gap-3 font-semibold justify-center cursor-pointer"
             >
               Download CV
               <ArrowDownCircle className="w-5 h-5" />
@@ -90,19 +91,13 @@ export default function About() {
         </div>
 
         {/* Highlight achievement */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-100/50 border border-green-200/50 rounded-full">
-            <Zap className="w-5 h-5 text-green-700" />
-            <span className="text-green-700 font-medium">
-              Successfully led Angular → Nuxt 3 migration, improving performance by 40%
-            </span>
-          </div>
-        </motion.div>
+        <HighlightPill
+          icon={Zap}
+          text="Successfully led Angular → Nuxt 3 migration, improving performance by 40%"
+          inView={inView}
+          delay={0.8}
+          className="text-center mt-6 sm:mt-12"
+        />
       </div>
     </section>
   );

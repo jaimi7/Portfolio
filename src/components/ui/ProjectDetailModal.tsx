@@ -143,11 +143,11 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
               </div>
 
               {/* 2. Modal Body Details */}
-              <div className="p-6 md:p-8 space-y-8">
+              <div className="p-6 md:p-8 space-y-4 sm:space-y-8">
                 {/* Overview & Contribution Section columns */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                   {/* Left: The Overview */}
-                  <div className="space-y-3 bg-yellow-50/20 border border-yellow-100/50 p-5 rounded-2xl">
+                  <div className="space-y-2 sm:space-y-3 bg-yellow-50/20 border border-yellow-100/50 p-4 sm:p-5 rounded-2xl">
                     <h4 className="font-bold text-gray-900 flex items-center gap-2 text-sm md:text-base">
                       <ShieldAlert className="w-5 h-5 text-yellow-500" />
                       THE OVERVIEW
@@ -158,7 +158,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
                   </div>
 
                   {/* Right: Contribution */}
-                  <div className="space-y-3 bg-emerald-50/20 border border-emerald-100/50 p-5 rounded-2xl">
+                  <div className="space-y-2 sm:space-y-3 bg-emerald-50/20 border border-emerald-100/50 p-4 sm:p-5 rounded-2xl">
                     <h4 className="font-bold text-gray-900 flex items-center gap-2 text-sm md:text-base">
                       <Zap className="w-5 h-5 text-emerald-500" />
                       MY CONTRIBUTION
@@ -170,15 +170,15 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
                 </div>
 
                 {/* Technologies Grid */}
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <span className={`${textClass} font-extrabold text-xs tracking-wider uppercase flex items-center gap-1.5`}>
                     <span className={`w-4 h-0.5 ${bgClass} rounded`} /> Technologies Used
                   </span>
-                  <div className="flex flex-wrap gap-2 pt-1">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className={`px-3 py-1.5 bg-slate-50 text-slate-700 border ${borderClass} rounded-xl text-xs font-semibold hover:bg-slate-100 transition-colors flex items-center gap-1`}
+                        className={`px-2 sm:px-3 py-1 sm:py-1.5 bg-slate-50 text-slate-700 border ${borderClass} rounded-xl text-xs font-semibold hover:bg-slate-100 transition-colors flex items-center gap-1`}
                       >
                         {tech}
                       </span>
@@ -189,32 +189,34 @@ export default function ProjectDetailModal({ project, isOpen, onClose, index = 0
             </div>
 
             {/* 3. Action Footer Buttons */}
-            <div className="bg-slate-50 border-t border-slate-100 w-full">
-              <div className="p-5 md:p-6 flex flex-col sm:flex-row gap-3 w-full justify-end">
-                {project.demoUrl && project.demoUrl !== '#' && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-full sm:w-auto text-nowrap flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r ${gradClass} text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer`}
-                  >
-                    <ExternalLink className="w-4 h-4 md:w-5 h-5" />
-                    Live Preview
-                  </a>
-                )}
-                {project.githubUrl && project.githubUrl !== '#' && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
-                  >
-                    <Code className="w-4 h-4 md:w-5 h-5" />
-                    View Source
-                  </a>
-                )}
+            {project.githubUrl && project.githubUrl !== '#' && project.demoUrl && project.demoUrl !== '#' &&
+              <div className="bg-slate-50 border-t border-slate-100 w-full">
+                <div className="p-4 md:p-6 flex flex-row gap-3 w-full justify-end">
+                  {project.demoUrl && project.demoUrl !== '#' && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full sm:w-auto text-nowrap flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3.5 bg-gradient-to-r ${gradClass} text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer`}
+                    >
+                      <ExternalLink className="w-4 h-4 md:w-5 h-5" />
+                      Live Preview
+                    </a>
+                  )}
+                  {project.githubUrl && project.githubUrl !== '#' && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-sm md:text-base font-bold shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+                    >
+                      <Code className="w-4 h-4 md:w-5 h-5" />
+                      View Source
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
+            }
           </motion.div>
         </div>
       )}

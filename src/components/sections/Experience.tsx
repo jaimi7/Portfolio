@@ -45,7 +45,6 @@ export default function Experience() {
           onClick={() => navigate('/experience')}
           inView={inView}
           delay={0.8}
-          className="mt-16"
         />
       </div>
     </section>

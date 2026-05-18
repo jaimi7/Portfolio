@@ -6,7 +6,7 @@ import type { Project, ProjectFilter } from '@/types';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import ProjectDetailModal from '@/components/ui/ProjectDetailModal';
 import PageHeader from '../ui/PageHeader';
-import { motion } from 'framer-motion';
+import HighlightPill from '../ui/HighlightPill';
 
 const filterButtons: { key: ProjectFilter; label: string; icon: React.ReactNode }[] = [
   { key: 'all', label: 'All Projects', icon: <Filter className="w-4 h-4" /> },
@@ -48,12 +48,12 @@ export default function ProjectsPage() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-16">
           {filterButtons.map((filter) => (
             <button
               key={filter.key}
               onClick={() => setSelectedFilter(filter.key)}
-              className={`px-5 py-2 flex items-center gap-2 rounded-full font-semibold transition-all duration-300 ${selectedFilter === filter.key
+              className={`px-3.5 py-1.5 sm:px-5 sm:py-2 flex items-center gap-1.5 sm:gap-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${selectedFilter === filter.key
                 ? 'bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-lg'
                 : 'bg-white border border-gray-300 text-gray-700 hover:border-cyan-400 hover:text-cyan-600'
                 }`}
@@ -65,7 +65,7 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -78,19 +78,13 @@ export default function ProjectsPage() {
         </div>
 
         {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-100/50 border border-green-200/50 rounded-full">
-            <Rocket className="w-5 h-5 text-green-700" />
-            <span className="text-green-700 font-medium">
-              {filteredProjects.length} projects showcasing enterprise integration expertise
-            </span>
-          </div>
-        </motion.div>
+        <HighlightPill
+          icon={Rocket}
+          text={`${filteredProjects.length} projects showcasing enterprise integration expertise`}
+          inView={inView}
+          delay={0.8}
+          className="text-center mt-12 sm:mt-16"
+        />
       </div>
 
       {/* Project Detail Modal Pop-up */}

@@ -50,16 +50,16 @@ export default function Contact() {
           subtitle="I'm always interested in discussing new opportunities, challenging projects, and innovative ideas in enterprise integration and cloud technologies."
         />
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Get in Touch</h3>
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6 md:mb-8">Get in Touch</h3>
 
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-6">
               {contactInfo.map((contact, index) => (
                 <motion.a
                   key={contact.label}
@@ -69,14 +69,14 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  className="premium-card p-6 flex items-center gap-4 hover:scale-105 transition-all duration-300 group"
+                  className="premium-card p-4 sm:p-6 flex items-center gap-4 hover:scale-105 transition-all duration-300 group"
                 >
-                  <div className="p-3 bg-gradient-to-br from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="p-2 sm:p-3 bg-gradient-to-br from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg shadow-lg group-hover:scale-110 transition-transform">
                     {contact.icon}
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">{contact.label}</p>
-                    <p className="font-medium text-gray-900 group-hover:text-cyan-600 transition-colors">
+                    <p className="text-xs sm:text-sm text-gray-600 mb-0.5 sm:mb-1">{contact.label}</p>
+                    <p className="text-sm sm:text-base font-medium text-gray-900 group-hover:text-cyan-600 transition-colors">
                       {contact.value}
                     </p>
                   </div>
@@ -89,10 +89,10 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-8 flex items-center gap-3 text-gray-600"
+              className="mt-4 sm:mt-8 flex items-center gap-2 sm:gap-3 text-gray-600"
             >
-              <MapPin className="w-5 h-5 text-cyan-600" />
-              <span>Available for remote and hybrid opportunities</span>
+              <MapPin className="w-4 sm:w-5 h-4 sm:h-5 text-cyan-600" />
+              <span className='text-sm sm:text-base'>Available for remote and hybrid opportunities</span>
             </motion.div>
           </motion.div>
 

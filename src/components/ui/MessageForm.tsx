@@ -21,7 +21,7 @@ export default function MessageForm() {
   const validateForm = () => {
     const tempErrors: typeof errors = {};
     if (!formData.name.trim()) tempErrors.name = 'Name is required';
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       tempErrors.email = 'Email is required';
@@ -53,13 +53,13 @@ export default function MessageForm() {
     if (!validateForm()) return;
 
     setStatus('submitting');
-    
+
     // Simulate premium backend API call
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
-      
+
       // Reset form status back to idle after 5 seconds
       setTimeout(() => setStatus('idle'), 5000);
     } catch {
@@ -75,11 +75,11 @@ export default function MessageForm() {
       transition={{ duration: 0.8, delay: 0.4 }}
     >
       <div className="premium-card p-8 relative overflow-hidden">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
-        
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Send a Message</h3>
+
+        <form className="space-y-3 sm:space-y-6" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
               Name
             </label>
             <input
@@ -89,9 +89,8 @@ export default function MessageForm() {
               value={formData.name}
               onChange={handleChange}
               disabled={status === 'submitting'}
-              className={`w-full px-4 py-3 border ${
-                errors.name ? 'border-red-400 focus:ring-red-400' : 'border-gray-300 focus:ring-cyan-400'
-              } rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 disabled:bg-slate-50 disabled:text-slate-400`}
+              className={`w-full text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-3 border ${errors.name ? 'border-red-400 focus:ring-red-400' : 'border-gray-300 focus:ring-cyan-400'
+                } rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 disabled:bg-slate-50 disabled:text-slate-400`}
               placeholder="Your Name"
             />
             {errors.name && (
@@ -102,7 +101,7 @@ export default function MessageForm() {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
               Email
             </label>
             <input
@@ -112,9 +111,8 @@ export default function MessageForm() {
               value={formData.email}
               onChange={handleChange}
               disabled={status === 'submitting'}
-              className={`w-full px-4 py-3 border ${
-                errors.email ? 'border-red-400 focus:ring-red-400' : 'border-gray-300 focus:ring-cyan-400'
-              } rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 disabled:bg-slate-50 disabled:text-slate-400`}
+              className={`w-full text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-3 border ${errors.email ? 'border-red-400 focus:ring-red-400' : 'border-gray-300 focus:ring-cyan-400'
+                } rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 disabled:bg-slate-50 disabled:text-slate-400`}
               placeholder="your.email@example.com"
             />
             {errors.email && (
@@ -125,7 +123,7 @@ export default function MessageForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
               Message
             </label>
             <textarea
@@ -135,9 +133,8 @@ export default function MessageForm() {
               value={formData.message}
               onChange={handleChange}
               disabled={status === 'submitting'}
-              className={`w-full px-4 py-3 border ${
-                errors.message ? 'border-red-400 focus:ring-red-400' : 'border-gray-300 focus:ring-cyan-400'
-              } rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 resize-none disabled:bg-slate-50 disabled:text-slate-400`}
+              className={`w-full text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-3 border ${errors.message ? 'border-red-400 focus:ring-red-400' : 'border-gray-300 focus:ring-cyan-400'
+                } rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 resize-none disabled:bg-slate-50 disabled:text-slate-400`}
               placeholder="Tell me about your project or opportunity..."
             />
             {errors.message && (

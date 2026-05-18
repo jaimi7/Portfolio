@@ -98,20 +98,20 @@ export function ProjectCard({ project, inView, index, onOpenDetails }: ProjectCa
       </div>
 
       {/* 2. Content Details Section */}
-      <div className="p-5 md:p-6 flex flex-col flex-1">
+      <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-1">
         {/* Project Title */}
-        <h3 className={`text-lg md:text-xl font-bold text-gray-900 mb-4 ${titleHoverClass} transition-colors`}>
+        <h3 className={`text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-4 ${titleHoverClass} transition-colors`}>
           {project.title}
         </h3>
 
         {/* Tech Stack Tags */}
-        <div className="mb-6 pr-10 text-gray-700 text-sm font-medium truncate" title={project.techStack.join(', ')}>
+        <div className="mb-4 sm:mb-6 pr-6 sm:pr-10 text-gray-700 text-sm font-medium truncate" title={project.techStack.join(', ')}>
           {project.techStack.join(', ')}
         </div>
 
-        <div className="flex items-center justify-between gap-3 mt-auto pt-4 border-t border-slate-100">
+        <div className="flex items-center justify-between gap-3 mt-auto pt-2 sm:pt-4 border-t border-slate-100">
           <div
-            className={`flex items-center gap-2 ${textClass} cursor-pointer py-2 px-4 rounded-md hover:shadow-lg`}
+            className={`flex items-center gap-2 ${textClass} cursor-pointer py-1 sm:py-2 px-4 rounded-md hover:shadow-lg`}
             onClick={onOpenDetails}
           >
             <p className="text-sm font-medium">View More</p>
@@ -119,28 +119,28 @@ export function ProjectCard({ project, inView, index, onOpenDetails }: ProjectCa
           </div>
           {/* Action Buttons */}
           <div className="flex gap-3">
-            {project.demoUrl && project.demoUrl !== '#' && (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className={`w-8 h-8 flex items-center justify-center bg-gradient-to-r ${gradClass} text-white rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300`}
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            )}
-            {project.githubUrl && project.githubUrl !== '#' && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="w-8 h-8 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white rounded-full text-sm font-semibold transition-colors"
-              >
-                <Code className="w-4 h-4" />
-              </a>
-            )}
+            {/* {project.demoUrl && project.demoUrl !== '#' && ( */}
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className={`w-8 h-8 flex items-center justify-center bg-gradient-to-r ${gradClass} text-white rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300`}
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+            {/* )} */}
+            {/* {project.githubUrl && project.githubUrl !== '#' && ( */}
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="w-8 h-8 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white rounded-full text-sm font-semibold transition-colors"
+            >
+              <Code className="w-4 h-4" />
+            </a>
+            {/* )} */}
           </div>
         </div></div>
     </motion.div>

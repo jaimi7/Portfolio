@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Code, CheckCircle, Zap, ShieldAlert, Cpu } from 'lucide-react';
+import { X, ExternalLink, Code, Zap, ShieldAlert } from 'lucide-react';
 import type { Project } from '@/types';
 import defaultProjectImage from '@/assets/project/....png';
 
@@ -28,23 +28,6 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
   const getProjectCategory = (category: string) => {
     return category === 'real' ? 'Real Project' : 'Learning Project';
   };
-
-  // Generates dynamic, realistic performance metrics matching the screenshot style
-  const getProjectMetrics = (id: string, category: string) => {
-    if (category === 'real') {
-      return [
-        { value: '+99.9%', label: 'UPTIME', color: 'text-sky-500 bg-sky-50 border-sky-100/50' },
-        { value: '<250ms', label: 'API LATENCY', color: 'text-teal-500 bg-teal-50 border-teal-100/50' },
-      ];
-    } else {
-      return [
-        { value: '100%', label: 'TEST COVERAGE', color: 'text-violet-500 bg-violet-50 border-violet-100/50' },
-        { value: 'A+', label: 'SECURITY GRADE', color: 'text-emerald-500 bg-emerald-50 border-emerald-100/50' },
-      ];
-    }
-  };
-
-  const metrics = getProjectMetrics(project.id, project.category);
 
   return (
     <AnimatePresence>
@@ -81,9 +64,6 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
 
                 {/* Overlaid Header Info */}
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 text-white">
-                  <span className="inline-block px-3 py-1 mb-3 rounded-lg text-xs font-semibold bg-cyan-500 text-white tracking-wide shadow-sm">
-                    {getProjectCategory(project.category)}
-                  </span>
                   <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight">
                     {project.name || project.id}
                   </h2>
@@ -101,53 +81,35 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
                 </button>
               </div>
 
+              <div className="flex flex-wrap gap-2 pt-2 pl-8">
+                <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-sm">
+                  {getProjectCategory(project.category)}
+                </span>
+                <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/80 text-cyan-400 border border-cyan-500/30 backdrop-blur-md">
+                  {project.id}
+                </span>
+              </div>
+
               {/* 2. Modal Body Details */}
               <div className="p-6 md:p-8 space-y-8">
-                {/* Column layout for Overview and Metrics */}
-                <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
-                  <div className="flex-1 space-y-2">
-                    <span className="text-cyan-500 font-extrabold text-xs tracking-wider uppercase flex items-center gap-1.5">
-                      <span className="w-4 h-0.5 bg-cyan-500 rounded" /> Project Overview
-                    </span>
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                {/* Overview & Contribution Section columns */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Left: The Overview */}
+                  <div className="space-y-3 bg-yellow-50/20 border border-yellow-100/50 p-5 rounded-2xl">
+                    <h4 className="font-bold text-gray-900 flex items-center gap-2 text-sm md:text-base">
+                      <ShieldAlert className="w-5 h-5 text-yellow-500" />
+                      THE OVERVIEW
+                    </h4>
+                    <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                       {project.overview}
                     </p>
                   </div>
 
-                  {/* Metrics Box matching screenshot */}
-                  <div className="flex gap-3 shrink-0 w-full md:w-auto">
-                    {metrics.map((metric, mIdx) => (
-                      <div
-                        key={mIdx}
-                        className={`flex-1 md:flex-initial flex flex-col items-center justify-center px-5 py-4 border rounded-2xl ${metric.color} text-center min-w-[100px] md:min-w-[120px]`}
-                      >
-                        <span className="text-lg md:text-2xl font-black tracking-tight">{metric.value}</span>
-                        <span className="text-[10px] md:text-xs font-bold tracking-wider opacity-80 mt-1 whitespace-nowrap">
-                          {metric.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Challenge & Solution Section columns */}
-                <div className="grid md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
-                  {/* Left: The Challenge */}
-                  <div className="space-y-3 bg-red-50/20 border border-red-100/50 p-5 rounded-2xl">
-                    <h4 className="font-bold text-gray-900 flex items-center gap-2 text-sm md:text-base">
-                      <ShieldAlert className="w-5 h-5 text-red-500" />
-                      THE CHALLENGE
-                    </h4>
-                    <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
-                      Building a highly optimized architecture to handle extensive data transactions, maintain real-time responsiveness, and deliver a zero-latency modular ecosystem tailored for {project.name || project.id}.
-                    </p>
-                  </div>
-
-                  {/* Right: The Solution (Contribution) */}
+                  {/* Right: Contribution */}
                   <div className="space-y-3 bg-emerald-50/20 border border-emerald-100/50 p-5 rounded-2xl">
                     <h4 className="font-bold text-gray-900 flex items-center gap-2 text-sm md:text-base">
                       <Zap className="w-5 h-5 text-emerald-500" />
-                      MY SOLUTION &amp; CONTRIBUTION
+                      MY CONTRIBUTION
                     </h4>
                     <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                       {project.contribution}
@@ -166,7 +128,6 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
                         key={techIndex}
                         className="px-3 py-1.5 bg-slate-50 text-slate-700 border border-slate-100 rounded-xl text-xs font-semibold hover:bg-slate-100 transition-colors flex items-center gap-1"
                       >
-                        <Cpu className="w-3.5 h-3.5 text-slate-400" />
                         {tech}
                       </span>
                     ))}

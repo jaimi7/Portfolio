@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import { ExternalLink, Code, ArrowRight } from 'lucide-react';
 import type { Project } from '@/types';
 import defaultProjectImage from '@/assets/project/....png'; // Fallback project illustration
 
@@ -20,7 +20,6 @@ export function ProjectCard({ project, inView, index, onOpenDetails }: ProjectCa
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-      onClick={onOpenDetails}
       className="group bg-white border border-slate-100 rounded-2xl shadow-md shadow-slate-100/50 hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden cursor-pointer"
     >
       {/* 1. Thumbnail Container */}
@@ -54,60 +53,45 @@ export function ProjectCard({ project, inView, index, onOpenDetails }: ProjectCa
           {project.title}
         </h3>
 
-        {/* Overview & Contribution Stack */}
-        <div className="text-xs md:text-sm space-y-4 mb-6 flex-1">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-1">Overview</h4>
-            <p className="text-gray-600 leading-relaxed">{project.overview}</p>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-1">Contribution</h4>
-            <p className="text-gray-600 leading-relaxed">{project.contribution}</p>
-          </div>
-        </div>
-
         {/* Tech Stack Tags */}
-        <div className="mb-6">
-          <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech, techIndex) => (
-              <span
-                key={techIndex}
-                className="px-2.5 py-1 bg-cyan-50/80 text-cyan-700 border border-cyan-100/30 rounded-lg text-xs font-medium hover:bg-cyan-100/50 transition-colors"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        <div className="mb-6 pr-10 text-gray-700 text-sm font-medium truncate" title={project.techStack.join(', ')}>
+          {project.techStack.join(', ')}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3 mt-auto pt-4 border-t border-slate-100">
-          {project.demoUrl && project.demoUrl !== '#' && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300 flex-1 justify-center"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Live Demo
-            </a>
-          )}
-          {project.githubUrl && project.githubUrl !== '#' && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-sm font-semibold transition-colors flex-1 justify-center"
-            >
-              <Code className="w-4 h-4" />
-              GitHub
-            </a>
-          )}
-        </div>
-      </div>
+        <div className="flex items-center justify-between gap-3 mt-auto pt-4 border-t border-slate-100">
+          <div
+            className="flex items-center gap-2 text-cyan-600 group-hover:text-cyan-700 cursor-pointer py-2 px-4 rounded-md  hover:shadow-lg"
+            onClick={onOpenDetails}
+          >
+            <p className="text-sm font-medium">View More</p>
+            <ArrowRight className="w-4 h-4" />
+          </div>
+          {/* Action Buttons */}
+          <div className="flex gap-3">
+            {project.demoUrl && project.demoUrl !== '#' && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="w-8 h-8 flex items-center justify-center bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300 flex-1 justify-center"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            )}
+            {project.githubUrl && project.githubUrl !== '#' && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="w-8 h-8 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white rounded-full text-sm font-semibold transition-colors flex-1 justify-center"
+              >
+                <Code className="w-4 h-4" />
+              </a>
+            )}
+          </div>
+        </div></div>
     </motion.div>
   );
 }

@@ -1,35 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Cloud, Zap, Lightbulb } from 'lucide-react';
+import { ArrowDownCircle, ArrowDownCircleIcon, Zap } from 'lucide-react';
 
 export default function About() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const storyPoints = [
-    {
-      icon: <Code className="w-6 h-6" />,
-      title: "Frontend Foundation",
-      description: "Started my journey building responsive web applications with modern JavaScript frameworks"
-    },
-    {
-      icon: <Cloud className="w-6 h-6" />,
-      title: "Full Stack Evolution",
-      description: "Expanded to backend development, building scalable SaaS, CRM, and HRMS platforms"
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "DevOps Integration",
-      description: "Embraced cloud technologies and CI/CD pipelines to deliver robust production systems"
-    },
-    {
-      icon: <Lightbulb className="w-6 h-6" />,
-      title: "Oracle Transformation",
-      description: "Now specializing in Oracle Cloud & Integration, connecting enterprise systems with AI-powered solutions"
-    }
-  ];
 
   return (
     <section id="about" className="py-20 bg-white">
@@ -39,45 +16,61 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
             About <span className="gradient-text">My Journey</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From crafting beautiful user interfaces to architecting enterprise integrations, 
-            I've evolved as a developer who bridges the gap between modern web technologies 
-            and enterprise systems.
+          <p className="text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed">
+            From crafting modern frontend experiences to building scalable full stack solutions,
+            I've evolved as a developer focused on clean architecture, performance and real-world problem solving.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-3 gap-10 items-center mb-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className='col-span-2'
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">My Story</h3>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-3 text-gray-700 leading-relaxed text-base">
               <p>
-                I began my career as a frontend developer, passionate about creating intuitive 
-                user experiences with Vue.js and React. This foundation taught me the importance 
-                of user-centered design and clean, maintainable code.
+                I started my career as a <span className="font-semibold">frontend developer</span>, building responsive and user-focused applications
+                using <span className="font-semibold">JavaScript, Vue.js, and React.js</span>, along with basic backend development using PHP.
+                This foundation helped me develop a strong understanding of <span className="font-semibold">clean architecture, reusable components</span>,
+                and intuitive user experiences.
               </p>
+
               <p>
-                As I grew, I ventured into full-stack development, building real-world SaaS 
-                platforms, CRM systems, and HRMS solutions. Working with production environments 
-                taught me about scalability, security, and the importance of robust DevOps practices.
+                As I grew into <span className="font-semibold">full stack development</span>, I worked on real-world
+                <span className="font-semibold"> SaaS platforms, CRM systems, HRMS solutions, and enterprise applications</span>
+                using <span className="font-semibold">Node.js, Python (FastAPI), MongoDB, and MySQL</span>.
               </p>
+
               <p>
-                Today, I'm transitioning into the Oracle ecosystem, focusing on cloud integration 
-                and enterprise systems. I'm particularly excited about combining traditional enterprise 
-                solutions with modern AI capabilities to create intelligent, automated workflows.
+                Working in production environments gave me hands-on experience with
+                <span className="font-semibold"> scalable system design, API development, cloud platforms</span>,
+                and DevOps practices using <span className="font-semibold">AWS, Azure, Docker, and CI/CD pipelines</span>.
               </p>
+
+              <p>
+                I also focus heavily on <span className="font-semibold">engineering quality and testing</span>,
+                using tools like <span className="font-semibold">Cypress, Vitest, Storybook, and Playwright</span>
+                to build reliable and maintainable applications.
+              </p>
+
+              <p>
+                Currently, I’m expanding my expertise in <span className="font-semibold">enterprise and cloud technologies</span>,
+                focusing on <span className="font-semibold">integration systems, automation, and AI-driven solutions</span>
+                to build smarter and more connected digital experiences.
+              </p>
+
               <div className="mt-6 p-4 bg-cyan-100/50 border-l-4 border-cyan-500 rounded-lg">
                 <p className="font-medium text-cyan-700">
-                  "I enjoy solving complex system problems and building seamless integrations that 
-                  connect disparate technologies into cohesive solutions."
+                  "Passionate about solving complex technical challenges and creating scalable,
+                  high-performance systems that seamlessly connect technologies and deliver meaningful user experiences."
                 </p>
               </div>
             </div>
@@ -87,26 +80,19 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-6 flex flex-col items-end"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Milestones</h3>
-            {storyPoints.map((point, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                className="premium-card p-6 flex items-start gap-4"
-              >
-                <div className="p-3 bg-gradient-to-br from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg shadow-lg">
-                  {point.icon}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{point.title}</h4>
-                  <p className="text-gray-600">{point.description}</p>
-                </div>
-              </motion.div>
-            ))}
+            <img
+              src="/favicon.png"
+              alt="Jaimi Patel"
+              className="h-auto w-full"
+            />
+            <button
+              className="px-8 py-3 gradient-button flex items-center gap-3 font-semibold"
+            >
+              Download CV
+              <ArrowDownCircle className="w-5 h-5" />
+            </button>
           </motion.div>
         </div>
 

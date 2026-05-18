@@ -13,8 +13,8 @@ export default function Contact() {
     {
       icon: <Mail className="w-5 h-5" />,
       label: 'Email',
-      value: 'jaimipatel77@gmail.com',
-      href: 'mailto:jaimipatel77@gmail.com',
+      value: 'pateljaimi77@gmail.com',
+      href: 'mailto:pateljaimi77@gmail.com',
       color: 'from-blue-500 to-blue-600'
     },
     {
@@ -28,14 +28,14 @@ export default function Contact() {
       icon: <Globe className="w-5 h-5" />,
       label: 'LinkedIn',
       value: 'linkedin.com/in/jaimi-patel',
-      href: 'https://linkedin.com/in/jaimi-patel',
+      href: 'https://www.linkedin.com/in/jaimi-patel-080084209/',
       color: 'from-blue-600 to-blue-700'
     },
     {
       icon: <Code className="w-5 h-5" />,
       label: 'GitHub',
-      value: 'github.com/jaimipatel',
-      href: 'https://github.com/jaimipatel',
+      value: 'github.com/jaimi7',
+      href: 'https://github.com/jaimi7',
       color: 'from-gray-700 to-gray-900'
     }
   ];

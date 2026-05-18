@@ -74,7 +74,7 @@ export default function MessageForm() {
         </form>
 
         <p className="mt-4 text-sm text-gray-600 text-center">
-          Or email directly at <a href="mailto:jaimipatel77@gmail.com" className="text-cyan-600 hover:underline">jaimipatel77@gmail.com</a>
+          Or email directly at <a href="mailto:pateljaimi77@gmail.com" className="text-cyan-600 hover:underline">pateljaimi77@gmail.com</a>
         </p>
       </div>
     </motion.div>

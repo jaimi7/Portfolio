@@ -1,50 +1,14 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Monitor, Cloud, Database, Brain, Filter } from 'lucide-react';
-import { skills } from '../../data/skills';
-import type { Skill } from '../../types';
-
-const categoryIcons = {
-  engineering: <Monitor className="w-5 h-5" />,
-  cloud: <Cloud className="w-5 h-5" />,
-  oracle: <Database className="w-5 h-5" />,
-  future: <Brain className="w-5 h-5" />
-};
-
-const categoryColors = {
-  engineering: 'from-blue-500 to-blue-600',
-  cloud: 'from-green-500 to-green-600',
-  oracle: 'from-orange-500 to-orange-600',
-  future: 'from-purple-500 to-purple-600'
-};
-
-const categoryTitles = {
-  engineering: 'Engineering Skills',
-  cloud: 'Cloud & DevOps',
-  oracle: 'Oracle Ecosystem',
-  future: 'Future Tech'
-};
+import { Code2, Wrench, BrainCircuit } from 'lucide-react';
+import { technicalSkills, tools, softSkills } from '../../data/skills';
+import SkillToolIcon from '../ui/SkillToolIcon';
 
 export default function Skills() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
-  const skillsByCategory = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
-    }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {} as Record<string, Skill[]>);
-
-  const displayedSkills = selectedCategory 
-    ? { [selectedCategory]: skillsByCategory[selectedCategory] }
-    : skillsByCategory;
 
   return (
     <section id="skills" className="py-20 bg-white">
@@ -60,112 +24,115 @@ export default function Skills() {
             Technical <span className="gradient-text">Expertise</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A comprehensive skill set spanning modern web development, cloud technologies, 
+            A comprehensive skill set spanning modern web development, cloud technologies,
             and enterprise integration systems.
           </p>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          <button
-            onClick={() => setSelectedCategory(null)}
-            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-              selectedCategory === null
-                ? 'bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-lg'
-                : 'bg-white border border-gray-300 text-gray-700 hover:border-cyan-400 hover:text-cyan-600'
-            }`}
-          >
-            <Filter className="w-4 h-4 inline mr-2" />
-            All Skills
-          </button>
-          
-          {Object.keys(skillsByCategory).map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                selectedCategory === category
-                  ? `bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 text-white shadow-lg`
-                  : `bg-white border border-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-sky-400 hover:via-cyan-400 hover:to-teal-400 hover:text-white`
-              }`}
-            >
-              {categoryIcons[category as keyof typeof categoryIcons]}
-              <span className="ml-2">{categoryTitles[category as keyof typeof categoryTitles]}</span>
-            </button>
-          ))}
-        </motion.div>
+        <div className="grid md:grid-cols-3 lg:grid-cols-5">
+          {/* Left Side */}
+          <div className='md:col-span-1 lg:col-span-2 md:pr-12 lg:pr-20'>
+            <div className="flex items-center gap-3 mb-10">
+              <Code2 className="w-7 h-7 text-orange-400" />
+              <h3 className="text-2xl font-bold text-gray-600">Technical Expertise</h3>
+            </div>
 
-        {/* Skills Grid */}
-        <div className="space-y-12">
-          {Object.entries(displayedSkills).map(([category, categorySkills], categoryIndex) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 + categoryIndex * 0.1 }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-sky-400 via-cyan-400 to-teal-400 text-white rounded-lg shadow-lg">
-                  {categoryIcons[category as keyof typeof categoryIcons]}
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {categoryTitles[category as keyof typeof categoryTitles]}
+            <div>
+              {technicalSkills.map((skill) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.6 * 0.1
+                  }}
+                  className="p-2 hover:scale-105 cursor-pointer group"
+                >
+                  {skill.level && (
+                    <div className="mt-3">
+                      <div className="flex justify-between  text-gray-600 mb-1">
+                        <span className="font-medium text-gray-900 group-hover:text-cyan-600 transition-colors">
+                          {skill.name}
+                        </span>
+                        <span className='text-xs'>{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={inView ? { width: `${skill.level}%` } : {}}
+                          transition={{
+                            duration: 1,
+                            delay: 0.8 * 0.1
+                          }}
+                          className="h-2 rounded-full bg-gradient-to-r from-fuchsia-300 via-purple-300 to-indigo-300"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="md:col-span-2 lg:col-span-3 space-y-14">
+            {/* Tools */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <Wrench className="w-7 h-7 text-red-400" />
+                <h3 className="text-2xl font-bold text-gray-600">
+                  Tools & Technologies
                 </h3>
-                {category === 'oracle' && (
-                  <span className="learning-badge">Currently Learning</span>
-                )}
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {categorySkills.map((skill, skillIndex) => (
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-5">
+                {tools.map((tool, index) => (
                   <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ 
-                      duration: 0.6, 
-                      delay: 0.6 + categoryIndex * 0.1 + skillIndex * 0.05 
+                    key={tool.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.05,
                     }}
-                    className="premium-card p-4 hover:scale-105 cursor-pointer group"
+                    className="shadow-md border border-gray-50 rounded-2xl p-5 flex flex-col items-center justify-center hover:border-cyan-400/40 
+                    hover:-translate-y-10 transition-all duration-300"
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-medium text-gray-900 group-hover:text-cyan-600 transition-colors">
-                        {skill.name}
-                      </span>
-                      {skill.isLearning && (
-                        <span className="learning-badge text-xs">Learning</span>
-                      )}
-                    </div>
-                    
-                    {skill.level && (
-                      <div className="mt-3">
-                        <div className="flex justify-between text-xs text-gray-600 mb-1">
-                          <span>Proficiency</span>
-                          <span>{skill.level}%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={inView ? { width: `${skill.level}%` } : {}}
-                            transition={{ 
-                              duration: 1, 
-                              delay: 0.8 + categoryIndex * 0.1 + skillIndex * 0.05 
-                            }}
-                            className="h-2 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400"
-                          />
-                        </div>
-                      </div>
-                    )}
+                    <SkillToolIcon type={tool.icon} />
+                    <span className="font-semibold text-gray-800 text-center">
+                      {tool.name}
+                    </span>
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            {/* Soft Skills */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <BrainCircuit className="w-7 h-7 text-orange-400" />
+                <h3 className="text-2xl font-bold text-gray-600">Soft Skills</h3>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                {softSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.05,
+                    }}
+                    className="text-sm px-4 py-2 rounded-full border border-fuchsia-300/30 bg-fuchsia-200/10 text-pink-500 font-medium hover:shadow-lg hover:shadow-fuchsia-300/30 transition-all duration-300 cursor-default"
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

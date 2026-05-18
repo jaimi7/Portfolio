@@ -19,7 +19,7 @@ export default function OrbitingElements() {
 
       {/* Email */}
       <div className="absolute cursor-pointer bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full shadow-lg flex items-center justify-center text-white">
-        <a href="mailto:jaimipatel77@gmail.com">
+        <a href="mailto:pateljaimi77@gmail.com">
           <Mail />
         </a>
       </div>
